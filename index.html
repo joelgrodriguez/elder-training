@@ -1,0 +1,921 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Eldership Training Curriculum — Presbyterian Reformed Church</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ink: #1a1612;
+    --parchment: #f5f0e8;
+    --parchment-deep: #ebe4d6;
+    --accent: #8b2500;
+    --accent-light: #a63d1a;
+    --muted: #6b6358;
+    --rule: #c4b9a8;
+    --rule-light: #d9d0c2;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html {
+    font-size: 17px;
+    scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  body {
+    font-family: 'EB Garamond', 'Georgia', serif;
+    background: var(--parchment);
+    color: var(--ink);
+    line-height: 1.7;
+  }
+
+  /* --- HEADER --- */
+  header {
+    padding: 5rem 2rem 3.5rem;
+    text-align: center;
+    border-bottom: 1px solid var(--rule);
+    background: linear-gradient(180deg, var(--parchment-deep) 0%, var(--parchment) 100%);
+  }
+
+  header .ornament {
+    font-size: 1.6rem;
+    color: var(--accent);
+    letter-spacing: 0.8em;
+    margin-bottom: 1.5rem;
+  }
+
+  h1 {
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 600;
+    font-size: clamp(2.2rem, 5vw, 3.6rem);
+    line-height: 1.15;
+    letter-spacing: -0.01em;
+    color: var(--ink);
+    margin-bottom: 0.6rem;
+  }
+
+  header .subtitle {
+    font-family: 'EB Garamond', serif;
+    font-size: 1.15rem;
+    font-style: italic;
+    color: var(--muted);
+    margin-bottom: 0.3rem;
+  }
+
+  header .byline {
+    font-size: 0.85rem;
+    color: var(--muted);
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    margin-top: 1.2rem;
+  }
+
+  /* --- NAV --- */
+  nav {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: var(--parchment-deep);
+    border-bottom: 1px solid var(--rule);
+    padding: 0.7rem 2rem;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  nav ul {
+    list-style: none;
+    display: flex;
+    gap: 1.8rem;
+    justify-content: center;
+    flex-wrap: nowrap;
+    min-width: max-content;
+  }
+
+  nav a {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 0.82rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--muted);
+    text-decoration: none;
+    white-space: nowrap;
+    transition: color 0.2s;
+  }
+
+  nav a:hover { color: var(--accent); }
+
+  /* --- MAIN --- */
+  main {
+    max-width: 52rem;
+    margin: 0 auto;
+    padding: 0 2rem 6rem;
+  }
+
+  /* --- SECTIONS --- */
+  section {
+    padding-top: 3.5rem;
+    margin-bottom: 1rem;
+  }
+
+  h2 {
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 600;
+    font-size: 1.85rem;
+    color: var(--accent);
+    margin-bottom: 0.3rem;
+    letter-spacing: -0.01em;
+  }
+
+  h2::after {
+    content: '';
+    display: block;
+    width: 3rem;
+    height: 2px;
+    background: var(--accent);
+    margin-top: 0.5rem;
+    margin-bottom: 1.2rem;
+  }
+
+  h3 {
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 600;
+    font-size: 1.3rem;
+    color: var(--ink);
+    margin-top: 2rem;
+    margin-bottom: 0.6rem;
+  }
+
+  h4 {
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 600;
+    font-size: 1.1rem;
+    color: var(--muted);
+    margin-top: 1.5rem;
+    margin-bottom: 0.5rem;
+    font-style: italic;
+  }
+
+  p {
+    margin-bottom: 1rem;
+    max-width: 42rem;
+  }
+
+  /* --- TABLES --- */
+  .table-wrap {
+    overflow-x: auto;
+    margin: 1rem 0 1.5rem;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.92rem;
+  }
+
+  thead th {
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 600;
+    font-size: 0.78rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--muted);
+    text-align: left;
+    padding: 0.5rem 0.8rem;
+    border-bottom: 2px solid var(--rule);
+  }
+
+  tbody td {
+    padding: 0.55rem 0.8rem;
+    border-bottom: 1px solid var(--rule-light);
+    vertical-align: top;
+  }
+
+  tbody tr:last-child td { border-bottom: none; }
+
+  tbody tr:hover { background: var(--parchment-deep); }
+
+  td:first-child {
+    font-weight: 500;
+    white-space: nowrap;
+    color: var(--muted);
+    width: 2.5rem;
+  }
+
+  .book-title {
+    font-style: italic;
+    color: var(--ink);
+  }
+
+  .author {
+    color: var(--muted);
+    font-size: 0.88rem;
+  }
+
+  .note {
+    font-size: 0.86rem;
+    color: var(--muted);
+    line-height: 1.5;
+  }
+
+  .required {
+    display: inline-block;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 0.7rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--accent);
+    background: rgba(139, 37, 0, 0.08);
+    padding: 0.1em 0.45em;
+    border-radius: 2px;
+  }
+
+  /* --- TRACKS TABLE --- */
+  .tracks-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(9rem, 1fr));
+    gap: 1rem;
+    margin: 1.2rem 0 2rem;
+  }
+
+  .track-card {
+    background: var(--parchment-deep);
+    border: 1px solid var(--rule);
+    padding: 1.2rem 1rem;
+    text-align: center;
+  }
+
+  .track-card .track-name {
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 700;
+    font-size: 1.05rem;
+    color: var(--accent);
+    margin-bottom: 0.25rem;
+  }
+
+  .track-card .track-duration {
+    font-size: 1.4rem;
+    font-weight: 600;
+    color: var(--ink);
+    font-family: 'Cormorant Garamond', serif;
+  }
+
+  .track-card .track-pace {
+    font-size: 0.78rem;
+    color: var(--muted);
+    font-style: italic;
+    margin-top: 0.15rem;
+  }
+
+  /* --- LISTS --- */
+  ol.priority-list {
+    padding-left: 1.4rem;
+    margin: 0.8rem 0 1.2rem;
+  }
+
+  ol.priority-list li {
+    margin-bottom: 0.45rem;
+    padding-left: 0.3rem;
+  }
+
+  ol.priority-list li strong {
+    color: var(--ink);
+  }
+
+  ul.concept-list {
+    list-style: none;
+    padding: 0;
+    margin: 0.8rem 0 1.2rem;
+  }
+
+  ul.concept-list li {
+    padding: 0.35rem 0 0.35rem 1.2rem;
+    position: relative;
+  }
+
+  ul.concept-list li::before {
+    content: '\2014';
+    position: absolute;
+    left: 0;
+    color: var(--rule);
+  }
+
+  /* --- OPEN SLOTS --- */
+  .open-slot {
+    font-style: italic;
+    color: var(--muted);
+    font-size: 0.9rem;
+    padding: 0.5rem 0;
+    border-left: 2px solid var(--rule);
+    padding-left: 1rem;
+    margin: 0.8rem 0;
+  }
+
+  /* --- WARNING BOX --- */
+  .warning {
+    background: rgba(139, 37, 0, 0.05);
+    border-left: 3px solid var(--accent);
+    padding: 0.8rem 1.2rem;
+    margin: 1rem 0;
+    font-size: 0.9rem;
+  }
+
+  .warning strong { color: var(--accent); }
+
+  /* --- STANDARDS LIST --- */
+  ol.standards {
+    padding-left: 1.4rem;
+    margin: 0.8rem 0 1.5rem;
+  }
+
+  ol.standards li {
+    margin-bottom: 0.8rem;
+    padding-left: 0.3rem;
+  }
+
+  ol.standards li strong {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.05rem;
+    color: var(--ink);
+  }
+
+  ol.standards li .std-note {
+    display: block;
+    font-size: 0.85rem;
+    color: var(--muted);
+    margin-top: 0.15rem;
+    line-height: 1.5;
+  }
+
+  /* --- FOOTER --- */
+  footer {
+    text-align: center;
+    padding: 2.5rem 2rem;
+    border-top: 1px solid var(--rule);
+    font-size: 0.82rem;
+    color: var(--muted);
+    font-style: italic;
+  }
+
+  footer .attribution {
+    margin-top: 0.3rem;
+    font-style: normal;
+    font-size: 0.75rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+
+  /* --- RESPONSIVE --- */
+  @media (max-width: 640px) {
+    header { padding: 3rem 1.2rem 2.5rem; }
+    main { padding: 0 1.2rem 4rem; }
+    nav { padding: 0.6rem 1rem; }
+    nav ul { justify-content: flex-start; gap: 1.2rem; }
+    h2 { font-size: 1.55rem; }
+    .tracks-grid { grid-template-columns: repeat(2, 1fr); }
+  }
+
+  /* --- PRINT --- */
+  @media print {
+    nav { display: none; }
+    header { padding: 2rem 0; }
+    section { page-break-inside: avoid; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="ornament">&#10013; &#10013; &#10013;</div>
+  <h1>Eldership Training Curriculum</h1>
+  <p class="subtitle">Presbyterian Eldership &mdash; Systematic Training Program</p>
+  <p class="byline">From the curriculum discussion of David Reece &middot; April 4, 2026</p>
+</header>
+
+<nav>
+  <ul>
+    <li><a href="#tracks">Tracks</a></li>
+    <li><a href="#standards">Standards</a></li>
+    <li><a href="#logic">Logic</a></li>
+    <li><a href="#history">History</a></li>
+    <li><a href="#worship">Worship</a></li>
+    <li><a href="#government">Government</a></li>
+    <li><a href="#wcf">Confession</a></li>
+    <li><a href="#systematics">Systematics</a></li>
+    <li><a href="#preaching">Preaching</a></li>
+    <li><a href="#practical">Practical</a></li>
+    <li><a href="#audio">Audio</a></li>
+  </ul>
+</nav>
+
+<main>
+
+<!-- TRAINING TRACKS -->
+<section id="tracks">
+  <h2>Training Tracks</h2>
+  <div class="tracks-grid">
+    <div class="track-card">
+      <div class="track-name">Lightning</div>
+      <div class="track-duration">1 Year</div>
+      <div class="track-pace">Accelerated</div>
+    </div>
+    <div class="track-card">
+      <div class="track-name">Very Fast</div>
+      <div class="track-duration">2 Years</div>
+      <div class="track-pace">Intensive</div>
+    </div>
+    <div class="track-card">
+      <div class="track-name">Normal Fast</div>
+      <div class="track-duration">3 Years</div>
+      <div class="track-pace">Standard-Plus</div>
+    </div>
+    <div class="track-card">
+      <div class="track-name">Normal</div>
+      <div class="track-duration">4 Years</div>
+      <div class="track-pace">Standard</div>
+    </div>
+    <div class="track-card">
+      <div class="track-name">Slow</div>
+      <div class="track-duration">5 Years</div>
+      <div class="track-pace">Maximum from diaconal ordination</div>
+    </div>
+  </div>
+</section>
+
+<!-- FOUNDATIONAL STANDARDS -->
+<section id="standards">
+  <h2>I. Foundational Standards &amp; Documents</h2>
+  <p>These documents form the constitutional backbone of the curriculum. Every elder candidate must know them thoroughly.</p>
+  <ol class="standards">
+    <li>
+      <strong>Westminster Confession of Faith</strong>
+      <span class="std-note">With the footnote on the Pope and Antichrist retained, and the footnote ensuring the three calls of power can be called (irregular magistrate, officers without a settled court, ordinary delegated settled court).</span>
+    </li>
+    <li><strong>Westminster Larger Catechism</strong></li>
+    <li><strong>Westminster Shorter Catechism</strong></li>
+    <li>
+      <strong>Form of Government</strong>
+      <span class="std-note">Modified version requiring the teaching office (two-office clarification) and specifying the three votes of the congregation.</span>
+    </li>
+    <li>
+      <strong>Directory of Worship</strong>
+      <span class="std-note">Including the Q&amp;A section and the section on anointing with oil and laying on of hands for the sick.</span>
+    </li>
+    <li>
+      <strong>Directory of Family Worship</strong>
+      <span class="std-note">With clarifications to prevent misinterpretation in a tyrannical or oppressive manner.</span>
+    </li>
+  </ol>
+</section>
+
+<!-- LOGIC & PHILOSOPHY -->
+<section id="logic">
+  <h2>II. Logic &amp; Philosophy</h2>
+
+  <h3>Logic</h3>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>#</th><th>Title</th><th>Author</th><th>Notes</th></tr></thead>
+      <tbody>
+        <tr><td>1</td><td class="book-title">Logic Primer</td><td class="author">Elihu Carranza</td><td class="note">Short, clear, no appeals to men for logic. Based on Gordon Clark&rsquo;s work.</td></tr>
+        <tr><td>2</td><td class="book-title">Logic Primer Exercises &amp; Answers</td><td class="author">Elihu Carranza</td><td class="note">Companion workbook</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p>A rudimentary knowledge of Greek is also desired.</p>
+
+  <h3>Philosophy</h3>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>#</th><th>Title</th><th>Author</th><th>Notes</th></tr></thead>
+      <tbody>
+        <tr><td>1</td><td class="book-title">Thales to Dewey</td><td class="author">Gordon H. Clark</td><td class="note">Short, useful overview of the history of philosophy</td></tr>
+        <tr><td>2</td><td class="book-title">The Christian View of Men and Things</td><td class="author">Gordon H. Clark</td><td class="note">Christian philosophy applied to major areas of thought</td></tr>
+        <tr><td>3</td><td class="book-title">A Christian Philosophy of Education</td><td class="author">Gordon H. Clark</td><td class="note"></td></tr>
+        <tr><td>4</td><td class="book-title">Of the Teacher (De Magistro)</td><td class="author">Aurelius Augustine</td><td class="note">Foundational Christian epistemology</td></tr>
+        <tr><td>5</td><td class="book-title">A History of Western Philosophy</td><td class="author">Bertrand Russell</td><td class="note">Secular one-volume summary &mdash; read for perspective, not agreement</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- CHURCH HISTORY -->
+<section id="history">
+  <h2>III. Church History</h2>
+
+  <h3>Key Short Summaries</h3>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>#</th><th>Title</th><th>Author</th><th>Notes</th></tr></thead>
+      <tbody>
+        <tr><td>1</td><td class="book-title">Reformation Principles Exhibited</td><td class="author">Reformed Presbyterian Church in America</td><td class="note">c.&nbsp;1806. Good short summary from the Covenanter perspective. Has a historicist view of Revelation.</td></tr>
+        <tr><td>2</td><td class="book-title">Church History in Plain English</td><td class="author">Bruce Shelley</td><td class="note">Use older editions only. Newer editions removed key figures.</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3>Historical Focus Areas</h3>
+  <ol class="priority-list">
+    <li><strong>Bible History</strong> &mdash; Genesis through 70&nbsp;AD (the most important)</li>
+    <li><strong>Major Councils</strong> &mdash; Nicaea, Chalcedon, Orange</li>
+    <li><strong>The Persecuted Church</strong> &mdash; pre-Constantinian era</li>
+    <li><strong>Papal Dominion</strong> &mdash; c.&nbsp;600&nbsp;AD to the Reformation</li>
+    <li><strong>Reformation History</strong> &mdash; through the &ldquo;Killing Times&rdquo;</li>
+    <li><strong>Second Reformation</strong> &mdash; John Knox and the Covenanter testimonies</li>
+    <li><strong>Decline of American Presbyterianism</strong> &mdash; the drift into non-establishmentarianism and the unscriptural 1789 alterations</li>
+    <li><strong>Preterist &amp; Postmillennial documents</strong> &mdash; for thinking about the current church era</li>
+  </ol>
+</section>
+
+<!-- WORSHIP -->
+<section id="worship">
+  <h2>IV. Worship</h2>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>#</th><th>Title</th><th>Author</th><th>Notes</th></tr></thead>
+      <tbody>
+        <tr><td>1</td><td class="book-title">Songs of Zion</td><td class="author">Michael Bushell</td><td class="note"><span class="required">Required</span> The most comprehensive contemporary work on exclusive psalmody. Note: Bushell wrongly claims the synagogue system is not biblical.</td></tr>
+        <tr><td>2</td><td class="book-title">Instrumental Music in the Public Worship of the Church</td><td class="author">John L. Girardeau</td><td class="note">1888. Excellent defense of the a cappella position.</td></tr>
+        <tr><td>3</td><td>Works on instruments, holy days, and psalmody</td><td class="author">Brian M. Schwertley</td><td class="note">Shorter treatments &mdash; the psalmody book is recommended for deacons.</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- CHURCH GOVERNMENT -->
+<section id="government">
+  <h2>V. Church Government</h2>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>#</th><th>Title</th><th>Author</th><th>Notes</th></tr></thead>
+      <tbody>
+        <tr><td>1</td><td class="book-title">The Church of Christ</td><td class="author">James Bannerman</td><td class="note">2 vols. Extremely good. Covers nature, powers, ordinances, discipline, and government. Also excellent on church censures (Ch.&nbsp;30) and synods/councils (Ch.&nbsp;31).</td></tr>
+        <tr><td>2</td><td>Short article on graded courts</td><td class="author">Samuel Miller</td><td class="note">Clear explanation of how higher offices contain lower offices; principles of graded courts.</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- WESTMINSTER CONFESSION CHAPTER-BY-CHAPTER -->
+<section id="wcf">
+  <h2>VI. Westminster Confession &mdash; Chapter-by-Chapter</h2>
+
+  <!-- Ch 1 -->
+  <h3>Chapter 1: Of the Holy Scripture</h3>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>#</th><th>Title</th><th>Author</th><th>Notes</th></tr></thead>
+      <tbody>
+        <tr><td>1</td><td class="book-title">The Scripturalism of Gordon H. Clark</td><td class="author">W. Gary Crampton</td><td class="note"><span class="required">Required</span></td></tr>
+        <tr><td>2</td><td class="book-title">Scripture Alone</td><td class="author">W. Gary Crampton</td><td class="note"><span class="required">Required</span></td></tr>
+        <tr><td>3</td><td class="book-title">The Canon of Scripture</td><td class="author">Walter Kaiser</td><td class="note">On the formation of the canon</td></tr>
+        <tr><td>4</td><td class="book-title">The Charismatics and the Word of God</td><td class="author">Victor Budgen</td><td class="note">Excellent on cessationism &mdash; walks through key texts.</td></tr>
+        <tr><td>5</td><td class="book-title">Before Jerusalem Fell</td><td class="author">Kenneth L. Gentry Jr.</td><td class="note">Dating the Book of Revelation; closure-of-canon arguments.</td></tr>
+        <tr><td>6</td><td>Sermons on Daniel (esp.&nbsp;Ch.&nbsp;9)</td><td class="author">Phillip Kayser</td><td class="note">Shows the close of the canon</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- Ch 2 -->
+  <h3>Chapter 2: Of God, and of the Holy Trinity</h3>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>#</th><th>Title</th><th>Author</th><th>Notes</th></tr></thead>
+      <tbody>
+        <tr><td>1</td><td class="book-title">The Trinity</td><td class="author">Gordon H. Clark</td><td class="note">The recommended text</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- Ch 3 -->
+  <h3>Chapter 3: Of God&rsquo;s Eternal Decree</h3>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>#</th><th>Title</th><th>Author</th><th>Notes</th></tr></thead>
+      <tbody>
+        <tr><td>1</td><td class="book-title">Predestination</td><td class="author">Gordon H. Clark</td><td class="note"></td></tr>
+        <tr><td>2</td><td class="book-title">God and Evil: The Problem Solved</td><td class="author">Gordon H. Clark</td><td class="note"></td></tr>
+        <tr><td>3</td><td class="book-title">Calvin&rsquo;s Calvinism</td><td class="author">B.B. Warfield (ed.)</td><td class="note">Magnificent volume collecting Calvin&rsquo;s writings on the decrees</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- Ch 4 -->
+  <h3>Chapter 4: Of Creation</h3>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>#</th><th>Title</th><th>Author</th><th>Notes</th></tr></thead>
+      <tbody>
+        <tr><td>1</td><td class="book-title">Is Genesis History?</td><td class="author">Thomas Purifoy (dir.)</td><td class="note"><span class="required">Required</span> Documentary</td></tr>
+        <tr><td>2</td><td class="book-title">The Biblical Doctrine of Man</td><td class="author">Gordon H. Clark</td><td class="note"></td></tr>
+        <tr><td>3</td><td>Commentary on Genesis</td><td class="author">Gary North</td><td class="note">Focuses on dominion mandate and creation</td></tr>
+        <tr><td>4</td><td>Commentary on Genesis</td><td class="author">Matthew Poole</td><td class="note">Classic Reformed view</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- Ch 5 -->
+  <h3>Chapter 5: Of Providence</h3>
+  <p>Largely covered by the decree materials above. Key concepts to master:</p>
+  <ul class="concept-list">
+    <li><strong>Second causes and causation</strong> &mdash; covered in Clark&rsquo;s works</li>
+    <li><strong>Hobbes and mechanism</strong> &mdash; be aware of this error</li>
+    <li><strong>Leibniz and dualism</strong> &mdash; the &ldquo;two clocks&rdquo; metaphor</li>
+    <li><strong>Four metaphysical positions:</strong> Dualism, Materialism, Idealism (Spiritualism), and the Biblical view (Creation)</li>
+  </ul>
+
+  <!-- Ch 6 -->
+  <h3>Chapter 6: Of the Fall of Man</h3>
+  <p class="open-slot">Covered well by resources already listed above.</p>
+
+  <!-- Ch 7 -->
+  <h3>Chapter 7: Of God&rsquo;s Covenant with Man</h3>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>#</th><th>Title</th><th>Author</th><th>Notes</th></tr></thead>
+      <tbody>
+        <tr><td>1</td><td class="book-title">The Christ of the Covenants</td><td class="author">O. Palmer Robertson</td><td class="note">Defines covenant as &ldquo;a bond in blood sovereignly administered.&rdquo;</td></tr>
+        <tr><td>2</td><td>RTS class on covenant theology</td><td class="author">Ligon Duncan</td><td class="note">Uses Robertson&rsquo;s book as textbook. Good on Hebrews 8&ndash;10 and Galatians 3&ndash;4.</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="warning"><strong>Warning:</strong> Be familiar with Ray Sutton&rsquo;s work on covenant structure but do not follow Sutton &mdash; considered a heretic.</div>
+
+  <!-- Ch 8 -->
+  <h3>Chapter 8: Of Christ the Mediator</h3>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>#</th><th>Title</th><th>Author</th><th>Notes</th></tr></thead>
+      <tbody>
+        <tr><td>1</td><td class="book-title">The Incarnation</td><td class="author">Gordon H. Clark</td><td class="note">The recommended text</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- Ch 9 -->
+  <h3>Chapter 9: Of Free Will</h3>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>#</th><th>Title</th><th>Author</th><th>Notes</th></tr></thead>
+      <tbody>
+        <tr><td>1</td><td>Works on free will</td><td class="author">Augustine of Hippo</td><td class="note">Central. Understand the fourfold state: <em>posse peccare, non posse non peccare, posse non peccare, non posse peccare.</em></td></tr>
+        <tr><td>2</td><td class="book-title">The Fourfold State of Man</td><td class="author">Thomas Boston</td><td class="note">Long &mdash; may be an unnecessary burden, but understand the framework.</td></tr>
+        <tr><td>3</td><td class="book-title">The Bondage and Liberation of the Will</td><td class="author">John Calvin</td><td class="note"></td></tr>
+        <tr><td>4</td><td class="book-title">The Bondage of the Will</td><td class="author">Martin Luther</td><td class="note"></td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- Ch 10 -->
+  <h3>Chapter 10: Of Effectual Calling</h3>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>#</th><th>Title</th><th>Author</th><th>Notes</th></tr></thead>
+      <tbody>
+        <tr><td>1</td><td class="book-title">The Bondage and Liberation of the Will</td><td class="author">John Calvin</td><td class="note">Also relevant here</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- Ch 11 -->
+  <h3>Chapter 11: Of Justification</h3>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>#</th><th>Title</th><th>Author</th><th>Notes</th></tr></thead>
+      <tbody>
+        <tr><td>1</td><td>Trinity Foundation lectures on justification</td><td class="author">John Robbins</td><td class="note"><span class="required">Required</span> Very strong on epistemology and justification.</td></tr>
+        <tr><td>2</td><td class="book-title">The Everlasting Righteousness</td><td class="author">Horatius Bonar</td><td class="note"><span class="required">Required</span> Also covers assurance (Ch.&nbsp;18).</td></tr>
+        <tr><td>3</td><td class="book-title">Justification by Faith Alone</td><td class="author">Charles Hodge</td><td class="note"></td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- Ch 12 -->
+  <h3>Chapter 12: Of Adoption</h3>
+  <p class="open-slot">No standout resource identified yet. Covered in various systematic theologies.</p>
+
+  <!-- Ch 13 -->
+  <h3>Chapter 13: Of Sanctification</h3>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>#</th><th>Title</th><th>Author</th><th>Notes</th></tr></thead>
+      <tbody>
+        <tr><td>1</td><td class="book-title">The Mortification of Sin</td><td class="author">John Owen</td><td class="note">Helpful but wordy</td></tr>
+        <tr><td>2</td><td class="book-title">God&rsquo;s Battle Plan for the Mind</td><td class="author">&mdash;</td><td class="note">Good on biblical meditation / sanctification of the mind</td></tr>
+        <tr><td>3</td><td class="book-title">God&rsquo;s Law Made Easy</td><td class="author">Kenneth L. Gentry Jr.</td><td class="note">Deceptive title &mdash; actually very useful</td></tr>
+        <tr><td>4</td><td>Book on sanctification</td><td class="author">Gordon H. Clark</td><td class="note">Recommended</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- Ch 14 -->
+  <h3>Chapter 14: Of Saving Faith</h3>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>#</th><th>Title</th><th>Author</th><th>Notes</th></tr></thead>
+      <tbody>
+        <tr><td>1</td><td class="book-title">What Is Saving Faith?</td><td class="author">Gordon H. Clark</td><td class="note"></td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- Ch 15 -->
+  <h3>Chapter 15: Of Repentance unto Life</h3>
+  <p class="open-slot">Covered well by Clark&rsquo;s <em>What Is Saving Faith?</em></p>
+
+  <!-- Ch 16 -->
+  <h3>Chapter 16: Of Good Works</h3>
+  <p class="open-slot">A &ldquo;regulative principle of life&rdquo; resource is needed. No specific book identified yet.</p>
+
+  <!-- Ch 17 -->
+  <h3>Chapter 17: Of the Perseverance of the Saints</h3>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>#</th><th>Title</th><th>Author</th><th>Notes</th></tr></thead>
+      <tbody>
+        <tr><td>1</td><td class="book-title">Sovereign Grace</td><td class="author">Brian M. Schwertley</td><td class="note">Good on Calvinism and perseverance</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- Ch 18 -->
+  <h3>Chapter 18: Of Assurance of Grace and Salvation</h3>
+  <p class="open-slot">Covered well by Bonar&rsquo;s <em>The Everlasting Righteousness.</em></p>
+
+  <!-- Ch 19 -->
+  <h3>Chapter 19: Of the Law of God</h3>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>#</th><th>Title</th><th>Author</th><th>Notes</th></tr></thead>
+      <tbody>
+        <tr><td>1</td><td class="book-title">God&rsquo;s Law Made Easy</td><td class="author">Kenneth L. Gentry Jr.</td><td class="note">Good overview</td></tr>
+        <tr><td>2</td><td>Trinity Foundation lectures</td><td class="author">John Robbins</td><td class="note">Good, though has a &ldquo;first table failure&rdquo;</td></tr>
+        <tr><td>3</td><td class="book-title">National Covenanting: Christ&rsquo;s Victory over the Nations</td><td class="author">Brian M. Schwertley</td><td class="note"><span class="required">Top Pick</span> One of the best books for this chapter.</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- Ch 20-21 -->
+  <h3>Chapter 20: Of Christian Liberty and Liberty of Conscience</h3>
+  <p class="open-slot">Covered by various Puritan resources on the regulative principle of worship.</p>
+
+  <h3>Chapter 21: Of Religious Worship and the Sabbath Day</h3>
+  <p class="open-slot">Covered by the worship resources listed in Section&nbsp;IV above.</p>
+
+  <!-- Ch 22-23 -->
+  <h3>Chapters 22&ndash;23: Of Oaths, Vows &amp; the Civil Magistrate</h3>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>#</th><th>Title</th><th>Author</th><th>Notes</th></tr></thead>
+      <tbody>
+        <tr><td>1</td><td class="book-title">National Covenanting</td><td class="author">Brian M. Schwertley</td><td class="note">Covers both chapters well</td></tr>
+        <tr><td>2</td><td class="book-title">The Divine Right of Resistance</td><td class="author">Phillip Kayser</td><td class="note">Excellent on biblical resistance theory</td></tr>
+        <tr><td>3</td><td>Works on civil government and application of law</td><td class="author">Phillip Kayser</td><td class="note">Includes material on death penalty and law application</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- Ch 24 -->
+  <h3>Chapter 24: Of Marriage and Divorce</h3>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>#</th><th>Title</th><th>Author</th><th>Notes</th></tr></thead>
+      <tbody>
+        <tr><td>1</td><td>Sermons on WCF Ch.&nbsp;24</td><td class="author">David Reece</td><td class="note">Organized all available material on the topic</td></tr>
+        <tr><td>2</td><td>Ezra sermon series (on divorce)</td><td class="author">Phillip Kayser</td><td class="note">Good on organizing principles of abandonment and infidelity</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- Ch 25-26 -->
+  <h3>Chapter 25: Of the Church</h3>
+  <p class="open-slot">Covered by Bannerman&rsquo;s <em>The Church of Christ.</em></p>
+
+  <h3>Chapter 26: Of the Communion of Saints</h3>
+  <p class="open-slot">No standout book identified. Need a resource on working together, dominion, and fellowship. Open slot.</p>
+
+  <!-- Ch 27 -->
+  <h3>Chapter 27: Of the Sacraments</h3>
+  <p>Key metaphysical concepts to master: <strong>Nominalism, Conceptualism, Realism</strong> &mdash; the relationship of truth to reality. Addressed in Clark&rsquo;s philosophical works.</p>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>#</th><th>Title</th><th>Author</th><th>Notes</th></tr></thead>
+      <tbody>
+        <tr><td>1</td><td class="book-title">Philosophical Foundation</td><td class="author">S.A. Gangadean</td><td class="note">Complex but useful. Has significant problems &mdash; best in a class setting with guided discussion.</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- Ch 28-29 -->
+  <h3>Chapter 28: Of Baptism</h3>
+  <p class="open-slot">Infant baptism resources need to be organized. Open slot.</p>
+
+  <h3>Chapter 29: Of the Lord&rsquo;s Supper</h3>
+  <p class="open-slot">Resources to be determined.</p>
+
+  <!-- Ch 30-31 -->
+  <h3>Chapters 30&ndash;31: Of Church Censures, Synods &amp; Councils</h3>
+  <p class="open-slot">Covered well by Bannerman&rsquo;s <em>The Church of Christ</em> and Samuel Miller&rsquo;s article.</p>
+
+  <!-- Ch 32 -->
+  <h3>Chapter 32: Of the State of Man After Death</h3>
+  <p class="open-slot">No good resource identified yet. Open slot.</p>
+
+  <!-- Ch 33 -->
+  <h3>Chapter 33: Of the Last Judgment</h3>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>#</th><th>Title</th><th>Author</th><th>Notes</th></tr></thead>
+      <tbody>
+        <tr><td>1</td><td class="book-title">He Shall Have Dominion</td><td class="author">Kenneth L. Gentry Jr.</td><td class="note">Postmillennial eschatology</td></tr>
+        <tr><td>2</td><td>Sermon series on Revelation (~100 sermons)</td><td class="author">Phillip Kayser</td><td class="note">Comprehensive &mdash; highly recommended</td></tr>
+        <tr><td>3</td><td>&ldquo;Flyover of Revelation&rdquo; (~16 hrs)</td><td class="author">Kenneth L. Gentry Jr.</td><td class="note">Very good overview</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- SYSTEMATIC THEOLOGY -->
+<section id="systematics">
+  <h2>VII. Systematic Theology</h2>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>#</th><th>Title</th><th>Author</th><th>Notes</th></tr></thead>
+      <tbody>
+        <tr><td>1</td><td class="book-title">Institutes of the Christian Religion</td><td class="author">John Calvin</td><td class="note">Recommended for a comprehensive flyover of all topics</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h4>Other systematic theologies &mdash; strengths and cautions</h4>
+  <ul class="concept-list">
+    <li><strong>Tertullian</strong> &mdash; Lots of good material, but tends toward modalism on the Trinity and blends in Aristotle.</li>
+    <li><strong>Charles Hodge</strong> &mdash; Great on many things, but an empiricist and weak on American government.</li>
+    <li><strong>W.G.T. Shedd</strong> &mdash; Interesting because he&rsquo;s Augustinian.</li>
+    <li><strong>Robert Reymond</strong> &mdash; Good on many things, but so Americanized that his view of institutions is compromised.</li>
+  </ul>
+</section>
+
+<!-- PREACHING -->
+<section id="preaching">
+  <h2>VIII. Preaching &amp; Pastoral Skills</h2>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>#</th><th>Title</th><th>Author</th><th>Notes</th></tr></thead>
+      <tbody>
+        <tr><td>1</td><td class="book-title">The Art of Prophesying</td><td class="author">William Perkins</td><td class="note">Classic on how to preach</td></tr>
+        <tr><td>2</td><td>Works on preaching</td><td class="author">John Owen</td><td class="note"></td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- PRACTICAL ELDERSHIP -->
+<section id="practical">
+  <h2>IX. Practical Eldership</h2>
+  <p>The following areas still need specific book assignments:</p>
+  <ul class="concept-list">
+    <li><strong>Counseling</strong> &mdash; biblical counseling resources</li>
+    <li><strong>Catechizing</strong> &mdash; methods and practice</li>
+    <li><strong>Conflict Resolution</strong> &mdash; within the church</li>
+    <li><strong>Management &amp; Administration</strong> &mdash; organizational leadership</li>
+    <li><strong>Hospitality</strong> &mdash; theology and practice of hospitality</li>
+  </ul>
+  <p>For <strong>deacons</strong> specifically: budgetary and financial management resources.</p>
+</section>
+
+<!-- AUDIO / LECTURES -->
+<section id="audio">
+  <h2>X. Audio &amp; Lecture Series</h2>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>#</th><th>Title</th><th>Speaker</th><th>Notes</th></tr></thead>
+      <tbody>
+        <tr><td>1</td><td>Trinity Foundation lectures on justification</td><td class="author">John Robbins</td><td class="note"><span class="required">Required</span> Epistemology and justification</td></tr>
+        <tr><td>2</td><td>100-part series on the Life of David</td><td class="author">Phillip Kayser</td><td class="note"><span class="required">Highly Desired</span> Fit in wherever possible</td></tr>
+        <tr><td>3</td><td>Sermon series on Revelation (~100 sermons)</td><td class="author">Phillip Kayser</td><td class="note">Eschatology</td></tr>
+        <tr><td>4</td><td>Sermon series on Daniel (esp.&nbsp;Ch.&nbsp;9)</td><td class="author">Phillip Kayser</td><td class="note">Canon closure arguments</td></tr>
+        <tr><td>5</td><td>RTS covenant theology class</td><td class="author">Ligon Duncan</td><td class="note">Uses Robertson&rsquo;s <em>Christ of the Covenants</em></td></tr>
+        <tr><td>6</td><td>&ldquo;Flyover of Revelation&rdquo; (~16 hrs)</td><td class="author">Kenneth L. Gentry Jr.</td><td class="note">Postmillennial eschatology</td></tr>
+        <tr><td>7</td><td>Kayser&rsquo;s Survey of the Bible</td><td class="author">Phillip Kayser</td><td class="note">Broad biblical overview</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <p>Curriculum compiled from David Reece&rsquo;s lecture &mdash; April&nbsp;4, 2026</p>
+  <p class="attribution">Organized by Joel Rodriguez</p>
+</footer>
+
+</body>
+</html>
