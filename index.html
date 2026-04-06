@@ -3,20 +3,23 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Eldership Training Curriculum — Presbyterian Reformed Church</title>
+<title>Eldership Training Curriculum — Puritan Reformed Church</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Outfit:wght@400;500;600;700;900&display=swap" rel="stylesheet">
 <style>
   :root {
-    --ink: #1a1612;
-    --parchment: #f5f0e8;
-    --parchment-deep: #ebe4d6;
-    --accent: #8b2500;
-    --accent-light: #a63d1a;
-    --muted: #6b6358;
-    --rule: #c4b9a8;
-    --rule-light: #d9d0c2;
+    --bronze: #be5927;
+    --bronze-light: #d06a38;
+    --indigo: #122c54;
+    --indigo-light: #1a3d6e;
+    --papaya: #ffeecf;
+    --snow: #fafafa;
+    --dust: #d4d4d8;
+    --ink: #1a1a1e;
+    --muted: #5c5c66;
+    --rule: #d4d4d8;
+    --rule-light: #e8e8ec;
   }
 
   * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -29,50 +32,59 @@
 
   body {
     font-family: 'EB Garamond', 'Georgia', serif;
-    background: var(--parchment);
+    background: var(--snow);
     color: var(--ink);
     line-height: 1.7;
   }
 
   /* --- HEADER --- */
   header {
-    padding: 5rem 2rem 3.5rem;
+    padding: 0;
     text-align: center;
-    border-bottom: 1px solid var(--rule);
-    background: linear-gradient(180deg, var(--parchment-deep) 0%, var(--parchment) 100%);
+    background: var(--indigo);
+    color: #fff;
+    position: relative;
+    overflow: hidden;
   }
 
-  header .ornament {
-    font-size: 1.6rem;
-    color: var(--accent);
-    letter-spacing: 0.8em;
-    margin-bottom: 1.5rem;
+  header::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: linear-gradient(135deg, var(--indigo) 0%, #1a3d6e 40%, #122c54 100%);
+  }
+
+  .header-inner {
+    position: relative;
+    z-index: 1;
+    padding: 3.5rem 2rem 3rem;
+  }
+
+  .header-label {
+    font-family: 'Outfit', sans-serif;
+    font-size: 0.72rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.25em;
+    color: var(--bronze);
+    margin-bottom: 1rem;
   }
 
   h1 {
     font-family: 'Cormorant Garamond', serif;
     font-weight: 600;
-    font-size: clamp(2.2rem, 5vw, 3.6rem);
+    font-size: clamp(2.2rem, 5vw, 3.4rem);
     line-height: 1.15;
     letter-spacing: -0.01em;
-    color: var(--ink);
-    margin-bottom: 0.6rem;
+    color: #fff;
+    margin-bottom: 0.5rem;
   }
 
   header .subtitle {
     font-family: 'EB Garamond', serif;
-    font-size: 1.15rem;
+    font-size: 1.1rem;
     font-style: italic;
-    color: var(--muted);
-    margin-bottom: 0.3rem;
-  }
-
-  header .byline {
-    font-size: 0.85rem;
-    color: var(--muted);
-    letter-spacing: 0.15em;
-    text-transform: uppercase;
-    margin-top: 1.2rem;
+    color: rgba(255,255,255,0.6);
   }
 
   /* --- NAV --- */
@@ -80,35 +92,36 @@
     position: sticky;
     top: 0;
     z-index: 100;
-    background: var(--parchment-deep);
+    background: #fff;
     border-bottom: 1px solid var(--rule);
-    padding: 0.7rem 2rem;
+    padding: 0.65rem 2rem;
     overflow-x: auto;
     -webkit-overflow-scrolling: touch;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.04);
   }
 
   nav ul {
     list-style: none;
     display: flex;
-    gap: 1.8rem;
+    gap: 1.6rem;
     justify-content: center;
     flex-wrap: nowrap;
     min-width: max-content;
   }
 
   nav a {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 0.82rem;
+    font-family: 'Outfit', sans-serif;
+    font-size: 0.72rem;
     font-weight: 600;
     text-transform: uppercase;
-    letter-spacing: 0.12em;
+    letter-spacing: 0.1em;
     color: var(--muted);
     text-decoration: none;
     white-space: nowrap;
     transition: color 0.2s;
   }
 
-  nav a:hover { color: var(--accent); }
+  nav a:hover { color: var(--bronze); }
 
   /* --- MAIN --- */
   main {
@@ -125,9 +138,9 @@
 
   h2 {
     font-family: 'Cormorant Garamond', serif;
-    font-weight: 600;
+    font-weight: 700;
     font-size: 1.85rem;
-    color: var(--accent);
+    color: var(--indigo);
     margin-bottom: 0.3rem;
     letter-spacing: -0.01em;
   }
@@ -135,10 +148,10 @@
   h2::after {
     content: '';
     display: block;
-    width: 3rem;
-    height: 2px;
-    background: var(--accent);
-    margin-top: 0.5rem;
+    width: 2.5rem;
+    height: 3px;
+    background: var(--bronze);
+    margin-top: 0.45rem;
     margin-bottom: 1.2rem;
   }
 
@@ -146,7 +159,7 @@
     font-family: 'Cormorant Garamond', serif;
     font-weight: 600;
     font-size: 1.3rem;
-    color: var(--ink);
+    color: var(--indigo);
     margin-top: 2rem;
     margin-bottom: 0.6rem;
   }
@@ -180,15 +193,15 @@
   }
 
   thead th {
-    font-family: 'Cormorant Garamond', serif;
+    font-family: 'Outfit', sans-serif;
     font-weight: 600;
-    font-size: 0.78rem;
+    font-size: 0.7rem;
     text-transform: uppercase;
     letter-spacing: 0.1em;
     color: var(--muted);
     text-align: left;
     padding: 0.5rem 0.8rem;
-    border-bottom: 2px solid var(--rule);
+    border-bottom: 2px solid var(--indigo);
   }
 
   tbody td {
@@ -199,7 +212,7 @@
 
   tbody tr:last-child td { border-bottom: none; }
 
-  tbody tr:hover { background: var(--parchment-deep); }
+  tbody tr:hover { background: #f5f5f8; }
 
   td:first-child {
     font-weight: 500;
@@ -226,52 +239,41 @@
 
   .required {
     display: inline-block;
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 0.7rem;
+    font-family: 'Outfit', sans-serif;
+    font-size: 0.62rem;
     font-weight: 700;
     text-transform: uppercase;
     letter-spacing: 0.08em;
-    color: var(--accent);
-    background: rgba(139, 37, 0, 0.08);
-    padding: 0.1em 0.45em;
+    color: #fff;
+    background: var(--bronze);
+    padding: 0.15em 0.5em;
     border-radius: 2px;
+    vertical-align: 1px;
   }
 
-  /* --- TRACKS TABLE --- */
-  .tracks-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(9rem, 1fr));
-    gap: 1rem;
-    margin: 1.2rem 0 2rem;
+  /* --- STANDARDS LIST --- */
+  ol.standards {
+    padding-left: 1.4rem;
+    margin: 0.8rem 0 1.5rem;
   }
 
-  .track-card {
-    background: var(--parchment-deep);
-    border: 1px solid var(--rule);
-    padding: 1.2rem 1rem;
-    text-align: center;
+  ol.standards li {
+    margin-bottom: 0.8rem;
+    padding-left: 0.3rem;
   }
 
-  .track-card .track-name {
+  ol.standards li strong {
     font-family: 'Cormorant Garamond', serif;
-    font-weight: 700;
     font-size: 1.05rem;
-    color: var(--accent);
-    margin-bottom: 0.25rem;
+    color: var(--indigo);
   }
 
-  .track-card .track-duration {
-    font-size: 1.4rem;
-    font-weight: 600;
-    color: var(--ink);
-    font-family: 'Cormorant Garamond', serif;
-  }
-
-  .track-card .track-pace {
-    font-size: 0.78rem;
+  ol.standards li .std-note {
+    display: block;
+    font-size: 0.85rem;
     color: var(--muted);
-    font-style: italic;
     margin-top: 0.15rem;
+    line-height: 1.5;
   }
 
   /* --- LISTS --- */
@@ -286,7 +288,7 @@
   }
 
   ol.priority-list li strong {
-    color: var(--ink);
+    color: var(--indigo);
   }
 
   ul.concept-list {
@@ -304,7 +306,7 @@
     content: '\2014';
     position: absolute;
     left: 0;
-    color: var(--rule);
+    color: var(--dust);
   }
 
   /* --- OPEN SLOTS --- */
@@ -313,95 +315,81 @@
     color: var(--muted);
     font-size: 0.9rem;
     padding: 0.5rem 0;
-    border-left: 2px solid var(--rule);
+    border-left: 2px solid var(--dust);
     padding-left: 1rem;
     margin: 0.8rem 0;
   }
 
   /* --- WARNING BOX --- */
   .warning {
-    background: rgba(139, 37, 0, 0.05);
-    border-left: 3px solid var(--accent);
+    background: rgba(190, 89, 39, 0.06);
+    border-left: 3px solid var(--bronze);
     padding: 0.8rem 1.2rem;
     margin: 1rem 0;
     font-size: 0.9rem;
   }
 
-  .warning strong { color: var(--accent); }
-
-  /* --- STANDARDS LIST --- */
-  ol.standards {
-    padding-left: 1.4rem;
-    margin: 0.8rem 0 1.5rem;
-  }
-
-  ol.standards li {
-    margin-bottom: 0.8rem;
-    padding-left: 0.3rem;
-  }
-
-  ol.standards li strong {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 1.05rem;
-    color: var(--ink);
-  }
-
-  ol.standards li .std-note {
-    display: block;
-    font-size: 0.85rem;
-    color: var(--muted);
-    margin-top: 0.15rem;
-    line-height: 1.5;
-  }
+  .warning strong { color: var(--bronze); }
 
   /* --- FOOTER --- */
   footer {
+    background: var(--indigo);
     text-align: center;
     padding: 2.5rem 2rem;
-    border-top: 1px solid var(--rule);
     font-size: 0.82rem;
-    color: var(--muted);
+    color: rgba(255,255,255,0.5);
     font-style: italic;
   }
 
+  footer a {
+    color: var(--bronze);
+    text-decoration: none;
+  }
+
+  footer a:hover { text-decoration: underline; }
+
   footer .attribution {
-    margin-top: 0.3rem;
+    margin-top: 0.5rem;
     font-style: normal;
-    font-size: 0.75rem;
-    letter-spacing: 0.08em;
+    font-family: 'Outfit', sans-serif;
+    font-size: 0.68rem;
+    letter-spacing: 0.1em;
     text-transform: uppercase;
+    color: rgba(255,255,255,0.3);
   }
 
   /* --- RESPONSIVE --- */
   @media (max-width: 640px) {
-    header { padding: 3rem 1.2rem 2.5rem; }
+    .header-inner { padding: 2.5rem 1.2rem 2rem; }
     main { padding: 0 1.2rem 4rem; }
     nav { padding: 0.6rem 1rem; }
     nav ul { justify-content: flex-start; gap: 1.2rem; }
     h2 { font-size: 1.55rem; }
-    .tracks-grid { grid-template-columns: repeat(2, 1fr); }
   }
 
   /* --- PRINT --- */
   @media print {
     nav { display: none; }
-    header { padding: 2rem 0; }
+    header { padding: 2rem 0; background: #fff; color: #000; }
+    header::before { display: none; }
+    h1 { color: var(--indigo); }
     section { page-break-inside: avoid; }
+    footer { background: #fff; color: var(--muted); }
   }
 </style>
 </head>
 <body>
 
 <header>
-  <div class="ornament">&#10013; &#10013; &#10013;</div>
-  <h1>Eldership Training Curriculum</h1>
-  <p class="subtitle">Presbyterian Eldership &mdash; Systematic Training Program</p>
-  <p class="byline">From the curriculum discussion of David Reece &middot; April 4, 2026</p>
+  <div class="header-inner">
+    <div class="header-label">Puritan Reformed Church</div>
+    <h1>Eldership Training Curriculum</h1>
+    <p class="subtitle">Presbyterian Eldership &mdash; Systematic Training Program</p>
+  </div>
 </header>
 
 <nav>
   <ul>
-    <li><a href="#tracks">Tracks</a></li>
     <li><a href="#standards">Standards</a></li>
     <li><a href="#logic">Logic</a></li>
     <li><a href="#history">History</a></li>
@@ -416,38 +404,6 @@
 </nav>
 
 <main>
-
-<!-- TRAINING TRACKS -->
-<section id="tracks">
-  <h2>Training Tracks</h2>
-  <div class="tracks-grid">
-    <div class="track-card">
-      <div class="track-name">Lightning</div>
-      <div class="track-duration">1 Year</div>
-      <div class="track-pace">Accelerated</div>
-    </div>
-    <div class="track-card">
-      <div class="track-name">Very Fast</div>
-      <div class="track-duration">2 Years</div>
-      <div class="track-pace">Intensive</div>
-    </div>
-    <div class="track-card">
-      <div class="track-name">Normal Fast</div>
-      <div class="track-duration">3 Years</div>
-      <div class="track-pace">Standard-Plus</div>
-    </div>
-    <div class="track-card">
-      <div class="track-name">Normal</div>
-      <div class="track-duration">4 Years</div>
-      <div class="track-pace">Standard</div>
-    </div>
-    <div class="track-card">
-      <div class="track-name">Slow</div>
-      <div class="track-duration">5 Years</div>
-      <div class="track-pace">Maximum from diaconal ordination</div>
-    </div>
-  </div>
-</section>
 
 <!-- FOUNDATIONAL STANDARDS -->
 <section id="standards">
@@ -567,7 +523,6 @@
 <section id="wcf">
   <h2>VI. Westminster Confession &mdash; Chapter-by-Chapter</h2>
 
-  <!-- Ch 1 -->
   <h3>Chapter 1: Of the Holy Scripture</h3>
   <div class="table-wrap">
     <table>
@@ -583,7 +538,6 @@
     </table>
   </div>
 
-  <!-- Ch 2 -->
   <h3>Chapter 2: Of God, and of the Holy Trinity</h3>
   <div class="table-wrap">
     <table>
@@ -594,7 +548,6 @@
     </table>
   </div>
 
-  <!-- Ch 3 -->
   <h3>Chapter 3: Of God&rsquo;s Eternal Decree</h3>
   <div class="table-wrap">
     <table>
@@ -607,7 +560,6 @@
     </table>
   </div>
 
-  <!-- Ch 4 -->
   <h3>Chapter 4: Of Creation</h3>
   <div class="table-wrap">
     <table>
@@ -621,7 +573,6 @@
     </table>
   </div>
 
-  <!-- Ch 5 -->
   <h3>Chapter 5: Of Providence</h3>
   <p>Largely covered by the decree materials above. Key concepts to master:</p>
   <ul class="concept-list">
@@ -631,11 +582,9 @@
     <li><strong>Four metaphysical positions:</strong> Dualism, Materialism, Idealism (Spiritualism), and the Biblical view (Creation)</li>
   </ul>
 
-  <!-- Ch 6 -->
   <h3>Chapter 6: Of the Fall of Man</h3>
   <p class="open-slot">Covered well by resources already listed above.</p>
 
-  <!-- Ch 7 -->
   <h3>Chapter 7: Of God&rsquo;s Covenant with Man</h3>
   <div class="table-wrap">
     <table>
@@ -648,7 +597,6 @@
   </div>
   <div class="warning"><strong>Warning:</strong> Be familiar with Ray Sutton&rsquo;s work on covenant structure but do not follow Sutton &mdash; considered a heretic.</div>
 
-  <!-- Ch 8 -->
   <h3>Chapter 8: Of Christ the Mediator</h3>
   <div class="table-wrap">
     <table>
@@ -659,7 +607,6 @@
     </table>
   </div>
 
-  <!-- Ch 9 -->
   <h3>Chapter 9: Of Free Will</h3>
   <div class="table-wrap">
     <table>
@@ -673,7 +620,6 @@
     </table>
   </div>
 
-  <!-- Ch 10 -->
   <h3>Chapter 10: Of Effectual Calling</h3>
   <div class="table-wrap">
     <table>
@@ -684,7 +630,6 @@
     </table>
   </div>
 
-  <!-- Ch 11 -->
   <h3>Chapter 11: Of Justification</h3>
   <div class="table-wrap">
     <table>
@@ -697,11 +642,9 @@
     </table>
   </div>
 
-  <!-- Ch 12 -->
   <h3>Chapter 12: Of Adoption</h3>
   <p class="open-slot">No standout resource identified yet. Covered in various systematic theologies.</p>
 
-  <!-- Ch 13 -->
   <h3>Chapter 13: Of Sanctification</h3>
   <div class="table-wrap">
     <table>
@@ -715,7 +658,6 @@
     </table>
   </div>
 
-  <!-- Ch 14 -->
   <h3>Chapter 14: Of Saving Faith</h3>
   <div class="table-wrap">
     <table>
@@ -726,15 +668,12 @@
     </table>
   </div>
 
-  <!-- Ch 15 -->
   <h3>Chapter 15: Of Repentance unto Life</h3>
   <p class="open-slot">Covered well by Clark&rsquo;s <em>What Is Saving Faith?</em></p>
 
-  <!-- Ch 16 -->
   <h3>Chapter 16: Of Good Works</h3>
   <p class="open-slot">A &ldquo;regulative principle of life&rdquo; resource is needed. No specific book identified yet.</p>
 
-  <!-- Ch 17 -->
   <h3>Chapter 17: Of the Perseverance of the Saints</h3>
   <div class="table-wrap">
     <table>
@@ -745,11 +684,9 @@
     </table>
   </div>
 
-  <!-- Ch 18 -->
   <h3>Chapter 18: Of Assurance of Grace and Salvation</h3>
   <p class="open-slot">Covered well by Bonar&rsquo;s <em>The Everlasting Righteousness.</em></p>
 
-  <!-- Ch 19 -->
   <h3>Chapter 19: Of the Law of God</h3>
   <div class="table-wrap">
     <table>
@@ -762,14 +699,12 @@
     </table>
   </div>
 
-  <!-- Ch 20-21 -->
   <h3>Chapter 20: Of Christian Liberty and Liberty of Conscience</h3>
   <p class="open-slot">Covered by various Puritan resources on the regulative principle of worship.</p>
 
   <h3>Chapter 21: Of Religious Worship and the Sabbath Day</h3>
   <p class="open-slot">Covered by the worship resources listed in Section&nbsp;IV above.</p>
 
-  <!-- Ch 22-23 -->
   <h3>Chapters 22&ndash;23: Of Oaths, Vows &amp; the Civil Magistrate</h3>
   <div class="table-wrap">
     <table>
@@ -782,7 +717,6 @@
     </table>
   </div>
 
-  <!-- Ch 24 -->
   <h3>Chapter 24: Of Marriage and Divorce</h3>
   <div class="table-wrap">
     <table>
@@ -794,14 +728,12 @@
     </table>
   </div>
 
-  <!-- Ch 25-26 -->
   <h3>Chapter 25: Of the Church</h3>
   <p class="open-slot">Covered by Bannerman&rsquo;s <em>The Church of Christ.</em></p>
 
   <h3>Chapter 26: Of the Communion of Saints</h3>
   <p class="open-slot">No standout book identified. Need a resource on working together, dominion, and fellowship. Open slot.</p>
 
-  <!-- Ch 27 -->
   <h3>Chapter 27: Of the Sacraments</h3>
   <p>Key metaphysical concepts to master: <strong>Nominalism, Conceptualism, Realism</strong> &mdash; the relationship of truth to reality. Addressed in Clark&rsquo;s philosophical works.</p>
   <div class="table-wrap">
@@ -813,22 +745,18 @@
     </table>
   </div>
 
-  <!-- Ch 28-29 -->
   <h3>Chapter 28: Of Baptism</h3>
   <p class="open-slot">Infant baptism resources need to be organized. Open slot.</p>
 
   <h3>Chapter 29: Of the Lord&rsquo;s Supper</h3>
   <p class="open-slot">Resources to be determined.</p>
 
-  <!-- Ch 30-31 -->
   <h3>Chapters 30&ndash;31: Of Church Censures, Synods &amp; Councils</h3>
   <p class="open-slot">Covered well by Bannerman&rsquo;s <em>The Church of Christ</em> and Samuel Miller&rsquo;s article.</p>
 
-  <!-- Ch 32 -->
   <h3>Chapter 32: Of the State of Man After Death</h3>
   <p class="open-slot">No good resource identified yet. Open slot.</p>
 
-  <!-- Ch 33 -->
   <h3>Chapter 33: Of the Last Judgment</h3>
   <div class="table-wrap">
     <table>
@@ -913,8 +841,8 @@
 </main>
 
 <footer>
-  <p>Curriculum compiled from David Reece&rsquo;s lecture &mdash; April&nbsp;4, 2026</p>
-  <p class="attribution">Organized by Joel Rodriguez</p>
+  <p>Curriculum compiled from the lecture of David Reece</p>
+  <p class="attribution">Organized by Joel Rodriguez &middot; <a href="https://prc-staging.mystagingwebsite.com/">Puritan Reformed Church</a></p>
 </footer>
 
 </body>
