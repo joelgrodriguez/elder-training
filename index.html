@@ -141,6 +141,13 @@
 
   .sidebar-footer a:hover { color: var(--bronze); }
 
+  .sidebar-footer .sidebar-print {
+    display: block;
+    margin-bottom: 0.6rem;
+    padding-bottom: 0.6rem;
+    border-bottom: 1px solid rgba(255,255,255,0.08);
+  }
+
   /* =========================================
      MOBILE HAMBURGER
      ========================================= */
@@ -191,21 +198,21 @@
   }
 
   .hamburger.open span:nth-child(1) {
-    transform: translateY(3.5px) rotate(45deg);
+    transform: translateY(7px) rotate(45deg);
   }
   .hamburger.open span:nth-child(2) {
     opacity: 0;
     transform: scaleX(0);
   }
   .hamburger.open span:nth-child(3) {
-    transform: translateY(-3.5px) rotate(-45deg);
+    transform: translateY(-7px) rotate(-45deg);
   }
 
   .overlay {
     display: none;
     position: fixed;
     inset: 0;
-    background: rgba(0,0,0,0.4);
+    background: rgba(0,0,0,0.55);
     z-index: 150;
     opacity: 0;
     transition: opacity 0.3s ease;
@@ -227,9 +234,10 @@
   /* --- HEADER --- */
   .page-header {
     padding: 3.5rem 3rem 2.5rem;
-    background: linear-gradient(135deg, var(--indigo) 0%, var(--indigo-deep) 100%);
-    color: #fff;
+    background: linear-gradient(135deg, #f7f3ed 0%, #ede6da 100%);
+    color: var(--ink);
     position: relative;
+    border-bottom: 3px solid var(--bronze);
   }
 
   .page-header .header-label {
@@ -248,17 +256,9 @@
     font-size: clamp(2rem, 4vw, 3rem);
     line-height: 1.15;
     letter-spacing: -0.01em;
-    color: #fff;
+    color: var(--indigo);
   }
 
-  .page-header .header-logo {
-    position: absolute;
-    top: 2rem;
-    right: 3rem;
-    width: 140px;
-    height: auto;
-    opacity: 0.12;
-  }
 
   /* --- MAIN AREA --- */
   main {
@@ -357,6 +357,8 @@
   }
 
   .book-title { font-style: italic; color: var(--ink); }
+  .book-title a, td a { color: var(--bronze); text-decoration: none; border-bottom: 1px solid transparent; transition: border-color 0.2s; }
+  .book-title a:hover, td a:hover { border-bottom-color: var(--bronze); }
   .author { color: var(--muted); font-size: 0.88rem; }
   .note { font-size: 0.86rem; color: var(--muted); line-height: 1.5; }
 
@@ -484,6 +486,8 @@
      ========================================= */
   @media (max-width: 900px) {
     .sidebar {
+      width: 75vw;
+      max-width: 340px;
       transform: translateX(-100%);
     }
 
@@ -505,21 +509,16 @@
       padding: 2.5rem 1.5rem 2rem;
     }
 
-    .page-header .header-logo {
-      top: 1.5rem;
-      right: 1.5rem;
-      width: 80px;
-    }
-
     main {
       padding: 0 1.2rem 4rem;
     }
 
     h2 { font-size: 1.55rem; }
+
   }
 
   @media (max-width: 480px) {
-    .sidebar { width: 260px; }
+    .sidebar { width: 75vw; max-width: none; }
 
     .page-header {
       padding: 2rem 1.2rem 1.5rem;
@@ -538,12 +537,52 @@
 
   /* --- PRINT --- */
   @media print {
-    .sidebar, .mobile-bar, .overlay { display: none !important; }
-    .content { margin-left: 0; }
-    .page-header { background: #fff; color: #000; padding: 2rem 0; }
-    h1 { color: var(--indigo); }
-    section { page-break-inside: avoid; }
-    footer { background: #fff; color: var(--muted); }
+    .sidebar, .mobile-bar, .overlay, .print-btn { display: none !important; }
+    .content { margin-left: 0 !important; }
+
+    .page-header {
+      background: none !important;
+      border-bottom: 2px solid var(--bronze);
+      padding: 1.5rem 0 1rem;
+    }
+
+    .page-header .header-label { color: var(--bronze); }
+    .page-header h1 { color: var(--indigo); font-size: 2rem; }
+
+    main { padding: 0; max-width: 100%; }
+
+    section { page-break-inside: avoid; padding-top: 1.5rem; }
+
+    h2 { font-size: 1.4rem; }
+    h2::after { margin-bottom: 0.6rem; }
+    h3 { font-size: 1.1rem; margin-top: 1.2rem; }
+
+    table { font-size: 0.8rem; }
+    thead th { font-size: 0.65rem; border-bottom-width: 1px; }
+    tbody td { padding: 0.35rem 0.5rem; }
+
+    .table-wrap { margin: 0.5rem 0 1rem; }
+
+    .warning { border-left-width: 2px; padding: 0.5rem 0.8rem; font-size: 0.8rem; }
+    .open-slot { font-size: 0.8rem; }
+
+    a { color: var(--bronze); text-decoration: none; }
+    a[href]::after { content: none; }
+
+    footer {
+      background: none !important;
+      color: var(--muted);
+      border-top: 1px solid var(--rule);
+      padding: 1rem 0;
+      page-break-before: avoid;
+    }
+
+    footer .attribution { color: var(--muted); }
+    footer a { color: var(--bronze); }
+
+    ol.standards li, ol.priority-list li { margin-bottom: 0.4rem; }
+
+    body { font-size: 11pt; line-height: 1.5; }
   }
 </style>
 </head>
@@ -571,7 +610,7 @@
   <nav class="sidebar-nav" id="sidebar-nav">
     <div class="nav-section">Curriculum</div>
     <a href="#standards">I. Foundational Standards</a>
-    <a href="#logic">II. Logic &amp; Philosophy</a>
+    <a href="#logic">II. Languages, Logic &amp; Philosophy</a>
     <a href="#history">III. Church History</a>
     <a href="#worship">IV. Worship</a>
     <a href="#government">V. Church Government</a>
@@ -586,6 +625,10 @@
     <a href="#audio">X. Audio &amp; Lectures</a>
   </nav>
   <div class="sidebar-footer">
+    <a href="#" onclick="window.print();return false;" class="sidebar-print">
+      <svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor" style="vertical-align:-2px;margin-right:4px"><path d="M19 8H5c-1.66 0-3 1.34-3 3v6h4v4h12v-4h4v-6c0-1.66-1.34-3-3-3zm-3 11H8v-5h8v5zm3-7c-.55 0-1-.45-1-1s.45-1 1-1 1 .45 1 1-.45 1-1 1zm-1-9H6v4h12V3z"/></svg>
+      Print / Save PDF
+    </a>
     <a href="https://prc-staging.mystagingwebsite.com/">puritan.church</a>
   </div>
 </aside>
@@ -596,7 +639,6 @@
   <div class="page-header">
     <div class="header-label">Puritan Reformed Church</div>
     <h1>Eldership Training Curriculum</h1>
-    <img src="prc-logo-light.svg" alt="" class="header-logo" aria-hidden="true">
   </div>
 
   <main>
@@ -625,34 +667,118 @@
         <span class="std-note">With clarifications to prevent misinterpretation in a tyrannical or oppressive manner.</span>
       </li>
     </ol>
+
+    <h3>Catechism Commentaries</h3>
+
+    <h4>Westminster Shorter Catechism</h4>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>#</th><th>Title</th><th>Author</th><th>Notes</th></tr></thead>
+        <tbody>
+          <tr><td>1</td><td class="book-title"><a href="https://ccel.org/ccel/watson/divinity">A Body of Divinity</a></td><td class="author">Thomas Watson</td><td class="note">The gold standard. Watson&rsquo;s warm, pastoral exposition of each question.</td></tr>
+          <tr><td>2</td><td class="book-title"><a href="https://www.monergism.com/thethreshold/sdg/boston/An%20Exposition%20of%20the%20WSC%20-%20Thomas%20Boston.pdf">An Exposition of the Assembly&rsquo;s Shorter Catechism</a></td><td class="author">Thomas Boston</td><td class="note">Thorough Puritan treatment. Pairs well with Watson.</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h4>Westminster Larger Catechism</h4>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>#</th><th>Title</th><th>Author</th><th>Notes</th></tr></thead>
+        <tbody>
+          <tr><td>1</td><td class="book-title"><a href="https://archive.org/details/bodyofdivinity01ridg">A Body of Divinity</a> (2 vols.)</td><td class="author">Thomas Ridgeley</td><td class="note">The classic full-length commentary on the Larger Catechism. Public domain.</td></tr>
+          <tr><td>2</td><td class="book-title"><a href="https://archive.org/details/westminsterlarge0000vosj">The Westminster Larger Catechism: A Commentary</a></td><td class="author">J.G. Vos</td><td class="note">20th-century Reformed commentary. Clear, accessible, and question-by-question.</td></tr>
+        </tbody>
+      </table>
+    </div>
   </section>
 
-  <!-- LOGIC & PHILOSOPHY -->
+  <!-- BIBLICAL LANGUAGES, LOGIC & PHILOSOPHY -->
   <section id="logic">
-    <h2>II. Logic &amp; Philosophy</h2>
+    <h2>II. Biblical Languages, Logic &amp; Philosophy</h2>
+
+    <h3>Biblical Greek</h3>
+    <p>A rudimentary knowledge of Greek is desired for all elder candidates.</p>
+
+    <h4>Textbooks (Free)</h4>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>#</th><th>Title</th><th>Author</th><th>Notes</th></tr></thead>
+        <tbody>
+          <tr><td>1</td><td class="book-title"><a href="https://icotb.org/resources/GreekGrammar-Machen.pdf">New Testament Greek for Beginners</a></td><td class="author">J. Gresham Machen</td><td class="note">The classic Reformed grammar. Public domain.</td></tr>
+          <tr><td>2</td><td class="book-title"><a href="https://open.umn.edu/opentextbooks/textbooks/1275">Elementary New Testament Greek</a></td><td class="author">Owen Ewald</td><td class="note">Open-access, Creative Commons. No prior language study assumed.</td></tr>
+          <tr><td>3</td><td class="book-title"><a href="https://fbcclassroom.com/wp-content/uploads/2021/05/Wenham._Elements_of_New_Testament_GreekBookFi.org_compressed.pdf">The Elements of New Testament Greek</a></td><td class="author">J.W. Wenham</td><td class="note">Another solid beginner grammar</td></tr>
+          <tr><td>4</td><td class="book-title"><a href="https://archive.org/details/basicsofbiblical0000moun_h2k8">Basics of Biblical Greek Grammar</a></td><td class="author">William Mounce</td><td class="note">The modern standard &mdash; borrow digitally</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h4>Free Video Courses &amp; Tools</h4>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>#</th><th>Resource</th><th>Notes</th></tr></thead>
+        <tbody>
+          <tr><td>1</td><td><a href="https://www.billmounce.com/greek">Bill Mounce&rsquo;s Greek Lectures</a></td><td class="note">Free video lectures keyed to his textbook</td></tr>
+          <tr><td>2</td><td><a href="https://greekforall.com/free-biblical-greek-video-lessons/">Greek For All &mdash; Video Lessons</a></td><td class="note">Comprehensive beginner grammar videos</td></tr>
+          <tr><td>3</td><td><a href="https://dailydoseofgreek.com/learn-biblical-greek/">Daily Dose of Greek</a></td><td class="note">Free 2-minute daily verse videos + 26 instructional videos</td></tr>
+          <tr><td>4</td><td><a href="https://koinefoundations.com/">Koine Foundations</a></td><td class="note">Free audio/video supplements for alphabet and vocab</td></tr>
+          <tr><td>5</td><td><a href="https://www.christianleadersinstitute.org/gre-201-free-biblical-greek-course/">Christian Leaders Institute &mdash; Free Greek Course</a></td><td class="note">Structured free online course</td></tr>
+          <tr><td>6</td><td><a href="https://byzantinetext.com/wp-content/uploads/2017/08/RP2016-Readers-Edition.pdf">Greek NT Readers Edition (Byzantine)</a></td><td class="note">Greek NT with parsing aids &mdash; great for reading practice</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h3>Biblical Hebrew</h3>
+
+    <h4>Textbooks (Free)</h4>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>#</th><th>Title</th><th>Author</th><th>Notes</th></tr></thead>
+        <tbody>
+          <tr><td>1</td><td class="book-title"><a href="https://tmcdaniel.palmerseminary.edu/GeseniusGrammar.pdf">Gesenius&rsquo; Hebrew Grammar</a> (1910)</td><td class="author">Wilhelm Gesenius (ed. Kautzsch/Cowley)</td><td class="note">The standard reference grammar. Public domain.</td></tr>
+          <tr><td>2</td><td class="book-title"><a href="https://fbcclassroom.com/wp-content/uploads/2021/08/A-Handbook-to-Biblical-Hebrew_-An-Introduc-Timothy-G.-Crawford_compressed.pdf">A Handbook to Biblical Hebrew</a></td><td class="author">Timothy G. Crawford</td><td class="note">Introductory grammar</td></tr>
+          <tr><td>3</td><td class="book-title"><a href="https://archive.org/details/basicsofbiblical0000prat">Basics of Biblical Hebrew Grammar</a></td><td class="author">Pratico &amp; Van Pelt</td><td class="note">The modern standard &mdash; borrow or download</td></tr>
+          <tr><td>4</td><td class="book-title"><a href="https://archive.org/details/grammarforbiblic0000seow">A Grammar for Biblical Hebrew</a></td><td class="author">C.L. Seow</td><td class="note">Another solid option</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h4>Free Video Courses &amp; Tools</h4>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>#</th><th>Resource</th><th>Notes</th></tr></thead>
+        <tbody>
+          <tr><td>1</td><td><a href="https://freehebrew.online/">Aleph with Beth (Free Hebrew Online)</a></td><td class="note">Immersive video course &mdash; learn to read biblical Hebrew naturally. Highly recommended.</td></tr>
+          <tr><td>2</td><td><a href="https://biblicalhebrew.com/">BiblicalHebrew.com</a></td><td class="note">Free immersive video lessons + online activities</td></tr>
+          <tr><td>3</td><td><a href="https://www.hebrew4christians.com/">Hebrew for Christians</a></td><td class="note">Alphabet, vowels, grammar with audio. Free downloads.</td></tr>
+          <tr><td>4</td><td><a href="https://dailydoseofhebrew.com/">Daily Dose of Hebrew</a></td><td class="note">2-minute daily Hebrew verse videos</td></tr>
+          <tr><td>5</td><td><a href="https://www.animatedhebrew.com/">Animated Hebrew</a></td><td class="note">35 hours of video lectures, alphabet song, vocab apps</td></tr>
+          <tr><td>6</td><td><a href="https://bibleproject.com/classroom/introduction-to-the-hebrew-bible">BibleProject &mdash; Intro to the Hebrew Bible</a></td><td class="note">Free structured course</td></tr>
+        </tbody>
+      </table>
+    </div>
 
     <h3>Logic</h3>
     <div class="table-wrap">
       <table>
         <thead><tr><th>#</th><th>Title</th><th>Author</th><th>Notes</th></tr></thead>
         <tbody>
-          <tr><td>1</td><td class="book-title">Logic Primer</td><td class="author">Elihu Carranza</td><td class="note">Short, clear, no appeals to men for logic. Based on Gordon Clark&rsquo;s work.</td></tr>
-          <tr><td>2</td><td class="book-title">Logic Primer Exercises &amp; Answers</td><td class="author">Elihu Carranza</td><td class="note">Companion workbook</td></tr>
+          <tr><td>1</td><td class="book-title"><a href="https://apologetics315.com/2013/01/free-logic-primer-ebook-download/">Logic Primer</a></td><td class="author">Elihu Carranza</td><td class="note">Short, clear, no appeals to men for logic. Based on Gordon Clark&rsquo;s work.</td></tr>
+          <tr><td>2</td><td class="book-title"><a href="https://www.amazon.com/Logic-Primer-Exercises-Answers-Carranza/dp/B0989VKSKG">Logic Primer Exercises &amp; Answers</a></td><td class="author">Elihu Carranza</td><td class="note">Companion workbook</td></tr>
         </tbody>
       </table>
     </div>
-    <p>A rudimentary knowledge of Greek is also desired.</p>
 
     <h3>Philosophy</h3>
     <div class="table-wrap">
       <table>
         <thead><tr><th>#</th><th>Title</th><th>Author</th><th>Notes</th></tr></thead>
         <tbody>
-          <tr><td>1</td><td class="book-title">Thales to Dewey</td><td class="author">Gordon H. Clark</td><td class="note">Short, useful overview of the history of philosophy</td></tr>
-          <tr><td>2</td><td class="book-title">The Christian View of Men and Things</td><td class="author">Gordon H. Clark</td><td class="note">Christian philosophy applied to major areas of thought</td></tr>
-          <tr><td>3</td><td class="book-title">A Christian Philosophy of Education</td><td class="author">Gordon H. Clark</td><td class="note"></td></tr>
-          <tr><td>4</td><td class="book-title">Of the Teacher (De Magistro)</td><td class="author">Aurelius Augustine</td><td class="note">Foundational Christian epistemology</td></tr>
-          <tr><td>5</td><td class="book-title">A History of Western Philosophy</td><td class="author">Bertrand Russell</td><td class="note">Secular one-volume summary &mdash; read for perspective, not agreement</td></tr>
+          <tr><td>1</td><td class="book-title"><a href="https://archive.org/details/thalestodeweyhis0000clar">Thales to Dewey</a></td><td class="author">Gordon H. Clark</td><td class="note">Short, useful overview of the history of philosophy</td></tr>
+          <tr><td>2</td><td class="book-title"><a href="https://archive.org/details/christianviewofm0000gord">The Christian View of Men and Things</a></td><td class="author">Gordon H. Clark</td><td class="note">Christian philosophy applied to major areas of thought</td></tr>
+          <tr><td>3</td><td class="book-title"><a href="https://www.trinitylectures.org/">A Christian Philosophy of Education</a></td><td class="author">Gordon H. Clark</td><td class="note"></td></tr>
+          <tr><td>4</td><td class="book-title"><a href="https://archive.org/details/concerningteache0000unse">Of the Teacher (De Magistro)</a></td><td class="author">Aurelius Augustine</td><td class="note">Foundational Christian epistemology</td></tr>
+          <tr><td>5</td><td class="book-title"><a href="https://archive.org/details/russell-bertrand-a-history-of-western-philosophy">A History of Western Philosophy</a></td><td class="author">Bertrand Russell</td><td class="note">Secular one-volume summary &mdash; read for perspective, not agreement</td></tr>
         </tbody>
       </table>
     </div>
@@ -667,7 +793,7 @@
       <table>
         <thead><tr><th>#</th><th>Title</th><th>Author</th><th>Notes</th></tr></thead>
         <tbody>
-          <tr><td>1</td><td class="book-title">Reformation Principles Exhibited</td><td class="author">Reformed Presbyterian Church in America</td><td class="note">c.&nbsp;1806. Good short summary from the Covenanter perspective. Has a historicist view of Revelation.</td></tr>
+          <tr><td>1</td><td class="book-title"><a href="https://archive.org/details/reformationprinc00refo">Reformation Principles Exhibited</a></td><td class="author">Reformed Presbyterian Church in America</td><td class="note">c.&nbsp;1806. Good short summary from the Covenanter perspective. Has a historicist view of Revelation.</td></tr>
         </tbody>
       </table>
     </div>
@@ -692,9 +818,9 @@
       <table>
         <thead><tr><th>#</th><th>Title</th><th>Author</th><th>Notes</th></tr></thead>
         <tbody>
-          <tr><td>1</td><td class="book-title">Songs of Zion</td><td class="author">Michael Bushell</td><td class="note"><span class="required">Required</span> The most comprehensive contemporary work on exclusive psalmody. Note: Bushell wrongly claims the synagogue system is not biblical.</td></tr>
-          <tr><td>2</td><td class="book-title">Instrumental Music in the Public Worship of the Church</td><td class="author">John L. Girardeau</td><td class="note">1888. Excellent defense of the a cappella position.</td></tr>
-          <tr><td>3</td><td>Works on instruments, holy days, and psalmody</td><td class="author">Brian M. Schwertley</td><td class="note">Shorter treatments &mdash; the psalmody book is recommended for deacons.</td></tr>
+          <tr><td>1</td><td class="book-title"><a href="https://www.amazon.com/Songs-Zion-Michael-Bushell/dp/0983015414">Songs of Zion</a></td><td class="author">Michael Bushell</td><td class="note"><span class="required">Required</span> The most comprehensive contemporary work on exclusive psalmody. Note: Bushell wrongly claims the synagogue system is not biblical.</td></tr>
+          <tr><td>2</td><td class="book-title"><a href="https://archive.org/details/instrumentalmus00giragoog">Instrumental Music in the Public Worship of the Church</a></td><td class="author">John L. Girardeau</td><td class="note">1888. Excellent defense of the a cappella position.</td></tr>
+          <tr><td>3</td><td><a href="https://www.reformedonline.com/books/">Works on instruments, holy days, and psalmody</a></td><td class="author">Brian M. Schwertley</td><td class="note">Shorter treatments &mdash; the psalmody book is recommended for deacons.</td></tr>
         </tbody>
       </table>
     </div>
@@ -707,8 +833,8 @@
       <table>
         <thead><tr><th>#</th><th>Title</th><th>Author</th><th>Notes</th></tr></thead>
         <tbody>
-          <tr><td>1</td><td class="book-title">The Church of Christ</td><td class="author">James Bannerman</td><td class="note">2 vols. Extremely good. Covers nature, powers, ordinances, discipline, and government. Also excellent on church censures (Ch.&nbsp;30) and synods/councils (Ch.&nbsp;31).</td></tr>
-          <tr><td>2</td><td>Short article on graded courts</td><td class="author">Samuel Miller</td><td class="note">Clear explanation of how higher offices contain lower offices; principles of graded courts.</td></tr>
+          <tr><td>1</td><td class="book-title"><a href="https://archive.org/details/churchofchrist0001jame">The Church of Christ</a></td><td class="author">James Bannerman</td><td class="note">2 vols. Extremely good. Covers nature, powers, ordinances, discipline, and government. Also excellent on church censures (Ch.&nbsp;30) and synods/councils (Ch.&nbsp;31).</td></tr>
+          <tr><td>2</td><td><a href="https://archive.org/details/essayonwarrantna184200mill">An Essay on the Ruling Elder</a></td><td class="author">Samuel Miller</td><td class="note">Clear explanation of how higher offices contain lower offices; principles of graded courts.</td></tr>
         </tbody>
       </table>
     </div>
@@ -723,12 +849,12 @@
       <table>
         <thead><tr><th>#</th><th>Title</th><th>Author</th><th>Notes</th></tr></thead>
         <tbody>
-          <tr><td>1</td><td class="book-title">The Scripturalism of Gordon H. Clark</td><td class="author">W. Gary Crampton</td><td class="note"><span class="required">Required</span></td></tr>
-          <tr><td>2</td><td class="book-title">Scripture Alone</td><td class="author">W. Gary Crampton</td><td class="note"><span class="required">Required</span></td></tr>
+          <tr><td>1</td><td class="book-title"><a href="https://archive.org/details/scripturalismofg0000cram">The Scripturalism of Gordon H. Clark</a></td><td class="author">W. Gary Crampton</td><td class="note"><span class="required">Required</span></td></tr>
+          <tr><td>2</td><td class="book-title"><a href="https://www.amazon.com/Scripture-Alone-W-Gary-Crampton/dp/0940931591">Scripture Alone</a></td><td class="author">W. Gary Crampton</td><td class="note"><span class="required">Required</span></td></tr>
           <tr><td>3</td><td class="book-title">The Canon of Scripture</td><td class="author">Walter Kaiser</td><td class="note">On the formation of the canon</td></tr>
-          <tr><td>4</td><td class="book-title">The Charismatics and the Word of God</td><td class="author">Victor Budgen</td><td class="note">Excellent on cessationism &mdash; walks through key texts.</td></tr>
-          <tr><td>5</td><td class="book-title">Before Jerusalem Fell</td><td class="author">Kenneth L. Gentry Jr.</td><td class="note">Dating the Book of Revelation; closure-of-canon arguments.</td></tr>
-          <tr><td>6</td><td>Sermons on Daniel (esp.&nbsp;Ch.&nbsp;9)</td><td class="author">Phillip Kayser</td><td class="note">Shows the close of the canon</td></tr>
+          <tr><td>4</td><td class="book-title"><a href="https://archive.org/details/charismaticsword0000budg_1989">The Charismatics and the Word of God</a></td><td class="author">Victor Budgen</td><td class="note">Excellent on cessationism &mdash; walks through key texts.</td></tr>
+          <tr><td>5</td><td class="book-title"><a href="https://www.garynorth.com/freebooks/docs/pdf/before_jerusalem_fell.pdf">Before Jerusalem Fell</a></td><td class="author">Kenneth L. Gentry Jr.</td><td class="note">Dating the Book of Revelation; closure-of-canon arguments.</td></tr>
+          <tr><td>6</td><td><a href="https://www.sermonaudio.com/solo/dominioncovenant/sermons/series/58331/">Sermons on Daniel (esp.&nbsp;Ch.&nbsp;9)</a></td><td class="author">Phillip Kayser</td><td class="note">Shows the close of the canon</td></tr>
         </tbody>
       </table>
     </div>
@@ -738,7 +864,7 @@
       <table>
         <thead><tr><th>#</th><th>Title</th><th>Author</th><th>Notes</th></tr></thead>
         <tbody>
-          <tr><td>1</td><td class="book-title">The Trinity</td><td class="author">Gordon H. Clark</td><td class="note">The recommended text</td></tr>
+          <tr><td>1</td><td class="book-title"><a href="https://archive.org/details/trinity0000clar">The Trinity</a></td><td class="author">Gordon H. Clark</td><td class="note">The recommended text</td></tr>
         </tbody>
       </table>
     </div>
@@ -748,9 +874,9 @@
       <table>
         <thead><tr><th>#</th><th>Title</th><th>Author</th><th>Notes</th></tr></thead>
         <tbody>
-          <tr><td>1</td><td class="book-title">Predestination</td><td class="author">Gordon H. Clark</td><td class="note"></td></tr>
+          <tr><td>1</td><td class="book-title"><a href="https://archive.org/details/predestinationco0000clar">Predestination</a></td><td class="author">Gordon H. Clark</td><td class="note"></td></tr>
           <tr><td>2</td><td class="book-title">God and Evil: The Problem Solved</td><td class="author">Gordon H. Clark</td><td class="note"></td></tr>
-          <tr><td>3</td><td class="book-title">Calvin&rsquo;s Calvinism</td><td class="author">B.B. Warfield (ed.)</td><td class="note">Magnificent volume collecting Calvin&rsquo;s writings on the decrees</td></tr>
+          <tr><td>3</td><td class="book-title"><a href="https://www.monergism.com/thethreshold/sdg/warfield/Calvin%20and%20Calvinism%20-%20Warfield.pdf">Calvin and Calvinism</a></td><td class="author">B.B. Warfield (ed.)</td><td class="note">Magnificent volume collecting Calvin&rsquo;s writings on the decrees</td></tr>
         </tbody>
       </table>
     </div>
@@ -760,8 +886,8 @@
       <table>
         <thead><tr><th>#</th><th>Title</th><th>Author</th><th>Notes</th></tr></thead>
         <tbody>
-          <tr><td>1</td><td class="book-title">Is Genesis History?</td><td class="author">Thomas Purifoy (dir.)</td><td class="note"><span class="required">Required</span> Documentary</td></tr>
-          <tr><td>2</td><td class="book-title">The Biblical Doctrine of Man</td><td class="author">Gordon H. Clark</td><td class="note"></td></tr>
+          <tr><td>1</td><td class="book-title"><a href="https://tubitv.com/movies/683766/is-genesis-history">Is Genesis History?</a></td><td class="author">Thomas Purifoy (dir.)</td><td class="note"><span class="required">Required</span> Documentary</td></tr>
+          <tr><td>2</td><td class="book-title"><a href="https://www.trinitylectures.org/biblical-doctrine-of-man-the-book-p-224.html">The Biblical Doctrine of Man</a></td><td class="author">Gordon H. Clark</td><td class="note"></td></tr>
           <tr><td>3</td><td>Commentary on Genesis</td><td class="author">Gary North</td><td class="note">Focuses on dominion mandate and creation</td></tr>
           <tr><td>4</td><td>Commentary on Genesis</td><td class="author">Matthew Poole</td><td class="note">Classic Reformed view</td></tr>
         </tbody>
@@ -785,8 +911,8 @@
       <table>
         <thead><tr><th>#</th><th>Title</th><th>Author</th><th>Notes</th></tr></thead>
         <tbody>
-          <tr><td>1</td><td class="book-title">The Christ of the Covenants</td><td class="author">O. Palmer Robertson</td><td class="note">Defines covenant as &ldquo;a bond in blood sovereignly administered.&rdquo;</td></tr>
-          <tr><td>2</td><td>RTS class on covenant theology</td><td class="author">Ligon Duncan</td><td class="note">Uses Robertson&rsquo;s book as textbook. Good on Hebrews 8&ndash;10 and Galatians 3&ndash;4.</td></tr>
+          <tr><td>1</td><td class="book-title"><a href="https://archive.org/details/christofcovenant0000robe">The Christ of the Covenants</a></td><td class="author">O. Palmer Robertson</td><td class="note">Defines covenant as &ldquo;a bond in blood sovereignly administered.&rdquo;</td></tr>
+          <tr><td>2</td><td><a href="https://archive.org/details/rtscovenanttheologyduncan">RTS class on covenant theology</a></td><td class="author">Ligon Duncan</td><td class="note">Uses Robertson&rsquo;s book as textbook. Good on Hebrews 8&ndash;10 and Galatians 3&ndash;4.</td></tr>
         </tbody>
       </table>
     </div>
@@ -797,7 +923,7 @@
       <table>
         <thead><tr><th>#</th><th>Title</th><th>Author</th><th>Notes</th></tr></thead>
         <tbody>
-          <tr><td>1</td><td class="book-title">The Incarnation</td><td class="author">Gordon H. Clark</td><td class="note">The recommended text</td></tr>
+          <tr><td>1</td><td class="book-title"><a href="https://archive.org/details/incarnation0000clar">The Incarnation</a></td><td class="author">Gordon H. Clark</td><td class="note">The recommended text</td></tr>
         </tbody>
       </table>
     </div>
@@ -807,10 +933,10 @@
       <table>
         <thead><tr><th>#</th><th>Title</th><th>Author</th><th>Notes</th></tr></thead>
         <tbody>
-          <tr><td>1</td><td>Works on free will</td><td class="author">Augustine of Hippo</td><td class="note">Central. Understand the fourfold state: <em>posse peccare, non posse non peccare, posse non peccare, non posse peccare.</em></td></tr>
-          <tr><td>2</td><td class="book-title">The Fourfold State of Man</td><td class="author">Thomas Boston</td><td class="note">Long &mdash; may be an unnecessary burden, but understand the framework.</td></tr>
-          <tr><td>3</td><td class="book-title">The Bondage and Liberation of the Will</td><td class="author">John Calvin</td><td class="note"></td></tr>
-          <tr><td>4</td><td class="book-title">The Bondage of the Will</td><td class="author">Martin Luther</td><td class="note"></td></tr>
+          <tr><td>1</td><td><a href="https://archive.org/details/concerningteache0000unse">Works on free will</a></td><td class="author">Augustine of Hippo</td><td class="note">Central. Understand the fourfold state: <em>posse peccare, non posse non peccare, posse non peccare, non posse peccare.</em></td></tr>
+          <tr><td>2</td><td class="book-title"><a href="https://www.monergism.com/thethreshold/sdg/boston/Human_Nature_in_its_Fourfold_St.pdf">Human Nature in its Fourfold State</a></td><td class="author">Thomas Boston</td><td class="note">Long &mdash; may be an unnecessary burden, but understand the framework.</td></tr>
+          <tr><td>3</td><td class="book-title"><a href="https://www.monergism.com/thethreshold/sdg/calvin/The%20Bondage%20and%20Liberation%20of%20t%20-%20John%20Calvin.pdf">The Bondage and Liberation of the Will</a></td><td class="author">John Calvin</td><td class="note"></td></tr>
+          <tr><td>4</td><td class="book-title"><a href="https://www.monergism.com/thethreshold/sdg/luther/Bondage%20of%20the%20Will%20-%20Martin%20Luther.pdf">The Bondage of the Will</a></td><td class="author">Martin Luther</td><td class="note"></td></tr>
         </tbody>
       </table>
     </div>
@@ -820,7 +946,7 @@
       <table>
         <thead><tr><th>#</th><th>Title</th><th>Author</th><th>Notes</th></tr></thead>
         <tbody>
-          <tr><td>1</td><td class="book-title">The Bondage and Liberation of the Will</td><td class="author">John Calvin</td><td class="note">Also relevant here</td></tr>
+          <tr><td>1</td><td class="book-title"><a href="https://www.monergism.com/thethreshold/sdg/calvin/The%20Bondage%20and%20Liberation%20of%20t%20-%20John%20Calvin.pdf">The Bondage and Liberation of the Will</a></td><td class="author">John Calvin</td><td class="note">Also relevant here</td></tr>
         </tbody>
       </table>
     </div>
@@ -830,9 +956,9 @@
       <table>
         <thead><tr><th>#</th><th>Title</th><th>Author</th><th>Notes</th></tr></thead>
         <tbody>
-          <tr><td>1</td><td>Trinity Foundation lectures on justification</td><td class="author">John Robbins</td><td class="note"><span class="required">Required</span> Very strong on epistemology and justification.</td></tr>
-          <tr><td>2</td><td class="book-title">The Everlasting Righteousness</td><td class="author">Horatius Bonar</td><td class="note"><span class="required">Required</span> Also covers assurance (Ch.&nbsp;18).</td></tr>
-          <tr><td>3</td><td class="book-title">Justification by Faith Alone</td><td class="author">Charles Hodge</td><td class="note"></td></tr>
+          <tr><td>1</td><td><a href="https://www.sermonaudio.com/solo/trinityfoundation/sermons/speakers/John%20W.%20Robbins/">Trinity Foundation lectures on justification</a></td><td class="author">John Robbins</td><td class="note"><span class="required">Required</span> Very strong on epistemology and justification.</td></tr>
+          <tr><td>2</td><td class="book-title"><a href="https://www.chapellibrary.org/pdf/books/erig.pdf">The Everlasting Righteousness</a></td><td class="author">Horatius Bonar</td><td class="note"><span class="required">Required</span> Also covers assurance (Ch.&nbsp;18).</td></tr>
+          <tr><td>3</td><td class="book-title"><a href="https://archive.org/details/justificationbyf0000hodg">Justification by Faith Alone</a></td><td class="author">Charles Hodge</td><td class="note"></td></tr>
         </tbody>
       </table>
     </div>
@@ -845,9 +971,9 @@
       <table>
         <thead><tr><th>#</th><th>Title</th><th>Author</th><th>Notes</th></tr></thead>
         <tbody>
-          <tr><td>1</td><td class="book-title">The Mortification of Sin</td><td class="author">John Owen</td><td class="note">Helpful but wordy</td></tr>
+          <tr><td>1</td><td class="book-title"><a href="https://www.monergism.com/thethreshold/sdg/owen/Mortification%20of%20Sin%20-%20John%20Owen.pdf">The Mortification of Sin</a></td><td class="author">John Owen</td><td class="note">Helpful but wordy</td></tr>
           <tr><td>2</td><td class="book-title">God&rsquo;s Battle Plan for the Mind</td><td class="author">&mdash;</td><td class="note">Good on biblical meditation / sanctification of the mind</td></tr>
-          <tr><td>3</td><td class="book-title">God&rsquo;s Law Made Easy</td><td class="author">Kenneth L. Gentry Jr.</td><td class="note">Deceptive title &mdash; actually very useful</td></tr>
+          <tr><td>3</td><td class="book-title"><a href="https://www.amazon.com/Gods-Made-Easy-Kenneth-Gentry/dp/1734362022">God&rsquo;s Law Made Easy</a></td><td class="author">Kenneth L. Gentry Jr.</td><td class="note">Deceptive title &mdash; actually very useful</td></tr>
           <tr><td>4</td><td>Book on sanctification</td><td class="author">Gordon H. Clark</td><td class="note">Recommended</td></tr>
         </tbody>
       </table>
@@ -858,7 +984,7 @@
       <table>
         <thead><tr><th>#</th><th>Title</th><th>Author</th><th>Notes</th></tr></thead>
         <tbody>
-          <tr><td>1</td><td class="book-title">What Is Saving Faith?</td><td class="author">Gordon H. Clark</td><td class="note"></td></tr>
+          <tr><td>1</td><td class="book-title"><a href="https://orcuttchristian.org/Gordon%20Clark_FaithAndSavingFaith.pdf">What Is Saving Faith?</a></td><td class="author">Gordon H. Clark</td><td class="note"></td></tr>
         </tbody>
       </table>
     </div>
@@ -874,7 +1000,7 @@
       <table>
         <thead><tr><th>#</th><th>Title</th><th>Author</th><th>Notes</th></tr></thead>
         <tbody>
-          <tr><td>1</td><td class="book-title">Sovereign Grace</td><td class="author">Brian M. Schwertley</td><td class="note">Good on Calvinism and perseverance</td></tr>
+          <tr><td>1</td><td class="book-title"><a href="https://www.reformedonline.com/product-page/sovereign-grace-an-examination-of-the-five-points-of-calvinism">Sovereign Grace</a></td><td class="author">Brian M. Schwertley</td><td class="note">Good on Calvinism and perseverance</td></tr>
         </tbody>
       </table>
     </div>
@@ -887,9 +1013,9 @@
       <table>
         <thead><tr><th>#</th><th>Title</th><th>Author</th><th>Notes</th></tr></thead>
         <tbody>
-          <tr><td>1</td><td class="book-title">God&rsquo;s Law Made Easy</td><td class="author">Kenneth L. Gentry Jr.</td><td class="note">Good overview</td></tr>
-          <tr><td>2</td><td>Trinity Foundation lectures</td><td class="author">John Robbins</td><td class="note">Good, though has a &ldquo;first table failure&rdquo;</td></tr>
-          <tr><td>3</td><td class="book-title">National Covenanting: Christ&rsquo;s Victory over the Nations</td><td class="author">Brian M. Schwertley</td><td class="note"><span class="required">Top Pick</span> One of the best books for this chapter.</td></tr>
+          <tr><td>1</td><td class="book-title"><a href="https://www.amazon.com/Gods-Made-Easy-Kenneth-Gentry/dp/1734362022">God&rsquo;s Law Made Easy</a></td><td class="author">Kenneth L. Gentry Jr.</td><td class="note">Good overview</td></tr>
+          <tr><td>2</td><td><a href="https://www.sermonaudio.com/solo/trinityfoundation/sermons/speakers/John%20W.%20Robbins/">Trinity Foundation lectures</a></td><td class="author">John Robbins</td><td class="note">Good, though has a &ldquo;first table failure&rdquo;</td></tr>
+          <tr><td>3</td><td class="book-title"><a href="https://www.amazon.com/National-Covenanting-Christs-Victory-Nations/dp/0979969239">National Covenanting: Christ&rsquo;s Victory over the Nations</a></td><td class="author">Brian M. Schwertley</td><td class="note"><span class="required">Top Pick</span> One of the best books for this chapter.</td></tr>
         </tbody>
       </table>
     </div>
@@ -905,9 +1031,9 @@
       <table>
         <thead><tr><th>#</th><th>Title</th><th>Author</th><th>Notes</th></tr></thead>
         <tbody>
-          <tr><td>1</td><td class="book-title">National Covenanting</td><td class="author">Brian M. Schwertley</td><td class="note">Covers both chapters well</td></tr>
-          <tr><td>2</td><td class="book-title">The Divine Right of Resistance</td><td class="author">Phillip Kayser</td><td class="note">Excellent on biblical resistance theory</td></tr>
-          <tr><td>3</td><td>Works on civil government and application of law</td><td class="author">Phillip Kayser</td><td class="note">Includes material on death penalty and law application</td></tr>
+          <tr><td>1</td><td class="book-title"><a href="https://www.amazon.com/National-Covenanting-Christs-Victory-Nations/dp/0979969239">National Covenanting</a></td><td class="author">Brian M. Schwertley</td><td class="note">Covers both chapters well</td></tr>
+          <tr><td>2</td><td class="book-title"><a href="https://biblicalblueprints.com/divine-right">The Divine Right of Resistance</a></td><td class="author">Phillip Kayser</td><td class="note">Excellent on biblical resistance theory</td></tr>
+          <tr><td>3</td><td><a href="https://biblicalblueprints.com/">Works on civil government and application of law</a></td><td class="author">Phillip Kayser</td><td class="note">Includes material on death penalty and law application</td></tr>
         </tbody>
       </table>
     </div>
@@ -918,7 +1044,7 @@
         <thead><tr><th>#</th><th>Title</th><th>Author</th><th>Notes</th></tr></thead>
         <tbody>
           <tr><td>1</td><td>Sermons on WCF Ch.&nbsp;24</td><td class="author">David Reece</td><td class="note">Organized all available material on the topic</td></tr>
-          <tr><td>2</td><td>Ezra sermon series (on divorce)</td><td class="author">Phillip Kayser</td><td class="note">Good on organizing principles of abandonment and infidelity</td></tr>
+          <tr><td>2</td><td><a href="https://www.sermonaudio.com/speakers/23923/sermons">Ezra sermon series (on divorce)</a></td><td class="author">Phillip Kayser</td><td class="note">Good on organizing principles of abandonment and infidelity</td></tr>
         </tbody>
       </table>
     </div>
@@ -957,9 +1083,9 @@
       <table>
         <thead><tr><th>#</th><th>Title</th><th>Author</th><th>Notes</th></tr></thead>
         <tbody>
-          <tr><td>1</td><td class="book-title">He Shall Have Dominion</td><td class="author">Kenneth L. Gentry Jr.</td><td class="note">Postmillennial eschatology</td></tr>
-          <tr><td>2</td><td>Sermon series on Revelation (~100 sermons)</td><td class="author">Phillip Kayser</td><td class="note">Comprehensive &mdash; highly recommended</td></tr>
-          <tr><td>3</td><td>&ldquo;Flyover of Revelation&rdquo; (~16 hrs)</td><td class="author">Kenneth L. Gentry Jr.</td><td class="note">Very good overview</td></tr>
+          <tr><td>1</td><td class="book-title"><a href="https://www.garynorth.com/freebooks/docs/pdf/he_shall_have_dominion.pdf">He Shall Have Dominion</a></td><td class="author">Kenneth L. Gentry Jr.</td><td class="note">Postmillennial eschatology</td></tr>
+          <tr><td>2</td><td><a href="https://www.sermonaudio.com/search.asp?seriesOnly=true&currSection=sermonstopic&sourceid=dominioncovenant&keyword=Revelation&keyworddesc=Revelation">Sermon series on Revelation (~118 sermons)</a></td><td class="author">Phillip Kayser</td><td class="note">Comprehensive &mdash; highly recommended</td></tr>
+          <tr><td>3</td><td>&ldquo;<a href="https://www.kennethgentry.com/">Flyover of Revelation</a>&rdquo; (~16 hrs)</td><td class="author">Kenneth L. Gentry Jr.</td><td class="note">Very good overview</td></tr>
         </tbody>
       </table>
     </div>
@@ -972,7 +1098,7 @@
       <table>
         <thead><tr><th>#</th><th>Title</th><th>Author</th><th>Notes</th></tr></thead>
         <tbody>
-          <tr><td>1</td><td class="book-title">Institutes of the Christian Religion</td><td class="author">John Calvin</td><td class="note">Recommended for a comprehensive flyover of all topics</td></tr>
+          <tr><td>1</td><td class="book-title"><a href="https://www.ccel.org/ccel/calvin/institutes.toc.html">Institutes of the Christian Religion</a></td><td class="author">John Calvin</td><td class="note">Recommended for a comprehensive flyover of all topics</td></tr>
         </tbody>
       </table>
     </div>
@@ -989,12 +1115,18 @@
   <!-- PREACHING -->
   <section id="preaching">
     <h2>VIII. Preaching &amp; Pastoral Skills</h2>
+    <p>All free online. Read in this order.</p>
     <div class="table-wrap">
       <table>
         <thead><tr><th>#</th><th>Title</th><th>Author</th><th>Notes</th></tr></thead>
         <tbody>
-          <tr><td>1</td><td class="book-title">The Art of Prophesying</td><td class="author">William Perkins</td><td class="note">Classic on how to preach</td></tr>
-          <tr><td>2</td><td>Works on preaching</td><td class="author">John Owen</td><td class="note"></td></tr>
+          <tr><td>1</td><td class="book-title"><a href="https://www.monergism.com/thethreshold/sdg/perkins/perkins_prophesying2.pdf">The Art of Prophesying</a> (1592)</td><td class="author">William Perkins</td><td class="note"><span class="required">Start Here</span> 75 pages. The Puritan method: read text, explain from Scripture, gather doctrine, apply.</td></tr>
+          <tr><td>2</td><td class="book-title"><a href="https://onthewing.org/user/Dabney%20-%20Sacred%20Rhetoric.pdf">Sacred Rhetoric</a> (1870)</td><td class="author">Robert L. Dabney</td><td class="note">24 lectures from Union Seminary. The best systematic Reformed homiletics textbook. Covers argumentation, persuasion, style, preparation, public prayer.</td></tr>
+          <tr><td>3</td><td class="book-title"><a href="https://ccel.org/ccel/b/baxter/pastor/cache/pastor.pdf">The Reformed Pastor</a> (1656)</td><td class="author">Richard Baxter</td><td class="note">The heart check. Devastating on pastoral laziness. Read before you step into a pulpit.</td></tr>
+          <tr><td>4</td><td class="book-title"><a href="https://www.monergism.com/thethreshold/sdg/bridges/The%20Christian%20Ministry%20-%20Charles%20Bridges%20(1).pdf">The Christian Ministry</a> (1830)</td><td class="author">Charles Bridges</td><td class="note">Spurgeon called it the best work on the subject. Qualifications, preparation, causes of ministerial ineffectiveness.</td></tr>
+          <tr><td>5</td><td class="book-title"><a href="https://www.biblestudytools.com/classics/shedd-homiletics-pastoral-theology/">Homiletics and Pastoral Theology</a> (1867)</td><td class="author">W.G.T. Shedd</td><td class="note">Shedd&rsquo;s Augustinian approach to sermon construction. Seminary textbook for decades.</td></tr>
+          <tr><td>6</td><td class="book-title"><a href="https://www.monergism.com/thethreshold/sdg/broadus/A%20Treatise%20on%20the%20Preparation%20a%20-%20John%20A.%20Broadus.pdf">Preparation and Delivery of Sermons</a> (1870)</td><td class="author">John A. Broadus</td><td class="note">The encyclopedic reference. Most widely used homiletics textbook in American seminary history.</td></tr>
+          <tr><td>7</td><td class="book-title"><a href="https://books.google.com/books/about/Manuductio_ad_Ministerium_Directions_for.html?id=nBxdAAAAcAAJ">Manuductio ad Ministerium</a> (1726)</td><td class="author">Cotton Mather</td><td class="note">Puritan New England handbook for ministerial candidates. Academic preparation, conduct, preaching.</td></tr>
         </tbody>
       </table>
     </div>
@@ -1003,9 +1135,22 @@
   <!-- PRACTICAL ELDERSHIP -->
   <section id="practical">
     <h2>IX. Practical Eldership</h2>
-    <p>The following areas still need specific book assignments:</p>
+
+    <h3>Counseling (Jay Adams &mdash; Nouthetic Counseling)</h3>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>#</th><th>Title</th><th>Author</th><th>Notes</th></tr></thead>
+        <tbody>
+          <tr><td>1</td><td class="book-title"><a href="https://archive.org/details/competenttocouns0000adam_x6g4">Competent to Counsel</a></td><td class="author">Jay E. Adams</td><td class="note">The foundational text. Introduces nouthetic (biblical) counseling as the alternative to secular psychology.</td></tr>
+          <tr><td>2</td><td class="book-title"><a href="https://archive.org/details/christiancounsel0000adam">The Christian Counselor&rsquo;s Manual</a></td><td class="author">Jay E. Adams</td><td class="note">The practical &ldquo;how-to&rdquo; companion to <em>Competent to Counsel</em>.</td></tr>
+          <tr><td>3</td><td class="book-title"><a href="https://www.amazon.com/How-Help-People-Change-Adams/dp/0310511615">How to Help People Change</a></td><td class="author">Jay E. Adams</td><td class="note">Elucidates the process of counseling &mdash; applying biblical principles to bring about change.</td></tr>
+          <tr><td>4</td><td class="book-title"><a href="https://www.amazon.com/Critical-Stages-Biblical-Counseling-Finishing/dp/1949737071">Critical Stages of Biblical Counseling</a></td><td class="author">Jay E. Adams</td><td class="note">Three key stages: Getting Started, Breaking Through, Finishing Well.</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h3>Areas Still Needing Resources</h3>
     <ul class="concept-list">
-      <li><strong>Counseling</strong> &mdash; biblical counseling resources</li>
       <li><strong>Catechizing</strong> &mdash; methods and practice</li>
       <li><strong>Conflict Resolution</strong> &mdash; within the church</li>
       <li><strong>Management &amp; Administration</strong> &mdash; organizational leadership</li>
@@ -1021,13 +1166,13 @@
       <table>
         <thead><tr><th>#</th><th>Title</th><th>Speaker</th><th>Notes</th></tr></thead>
         <tbody>
-          <tr><td>1</td><td>Trinity Foundation lectures on justification</td><td class="author">John Robbins</td><td class="note"><span class="required">Required</span> Epistemology and justification</td></tr>
-          <tr><td>2</td><td>100-part series on the Life of David</td><td class="author">Phillip Kayser</td><td class="note"><span class="required">Highly Desired</span> Fit in wherever possible</td></tr>
-          <tr><td>3</td><td>Sermon series on Revelation (~100 sermons)</td><td class="author">Phillip Kayser</td><td class="note">Eschatology</td></tr>
-          <tr><td>4</td><td>Sermon series on Daniel (esp.&nbsp;Ch.&nbsp;9)</td><td class="author">Phillip Kayser</td><td class="note">Canon closure arguments</td></tr>
-          <tr><td>5</td><td>RTS covenant theology class</td><td class="author">Ligon Duncan</td><td class="note">Uses Robertson&rsquo;s <em>Christ of the Covenants</em></td></tr>
-          <tr><td>6</td><td>&ldquo;Flyover of Revelation&rdquo; (~16 hrs)</td><td class="author">Kenneth L. Gentry Jr.</td><td class="note">Postmillennial eschatology</td></tr>
-          <tr><td>7</td><td>Kayser&rsquo;s Survey of the Bible</td><td class="author">Phillip Kayser</td><td class="note">Broad biblical overview</td></tr>
+          <tr><td>1</td><td><a href="https://www.sermonaudio.com/solo/trinityfoundation/sermons/speakers/John%20W.%20Robbins/">Trinity Foundation lectures on justification</a></td><td class="author">John Robbins</td><td class="note"><span class="required">Required</span> Epistemology and justification</td></tr>
+          <tr><td>2</td><td><a href="https://www.sermonaudio.com/series/47907">100-part series on the Life of David</a></td><td class="author">Phillip Kayser</td><td class="note"><span class="required">Highly Desired</span> Fit in wherever possible</td></tr>
+          <tr><td>3</td><td><a href="https://www.sermonaudio.com/search.asp?seriesOnly=true&currSection=sermonstopic&sourceid=dominioncovenant&keyword=Revelation&keyworddesc=Revelation">Sermon series on Revelation (~118 sermons)</a></td><td class="author">Phillip Kayser</td><td class="note">Eschatology</td></tr>
+          <tr><td>4</td><td><a href="https://www.sermonaudio.com/solo/dominioncovenant/sermons/series/58331/">Sermon series on Daniel (esp.&nbsp;Ch.&nbsp;9)</a></td><td class="author">Phillip Kayser</td><td class="note">Canon closure arguments</td></tr>
+          <tr><td>5</td><td><a href="https://archive.org/details/rtscovenanttheologyduncan">RTS covenant theology class</a></td><td class="author">Ligon Duncan</td><td class="note">Uses Robertson&rsquo;s <em>Christ of the Covenants</em></td></tr>
+          <tr><td>6</td><td>&ldquo;<a href="https://www.kennethgentry.com/">Flyover of Revelation</a>&rdquo; (~16 hrs)</td><td class="author">Kenneth L. Gentry Jr.</td><td class="note">Postmillennial eschatology</td></tr>
+          <tr><td>7</td><td><a href="https://www.sermonaudio.com/speakers/23923/sermons">Kayser&rsquo;s Survey of the Bible</a></td><td class="author">Phillip Kayser</td><td class="note">Broad biblical overview</td></tr>
         </tbody>
       </table>
     </div>
