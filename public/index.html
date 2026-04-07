@@ -537,52 +537,63 @@
 
   /* --- PRINT --- */
   @media print {
-    .sidebar, .mobile-bar, .overlay, .print-btn { display: none !important; }
+    * { color: #000 !important; background: none !important; box-shadow: none !important; text-shadow: none !important; }
+
+    .sidebar, .mobile-bar, .overlay { display: none !important; }
     .content { margin-left: 0 !important; }
 
     .page-header {
-      background: none !important;
-      border-bottom: 2px solid var(--bronze);
-      padding: 1.5rem 0 1rem;
+      border-bottom: 1px solid #000;
+      padding: 0 0 0.4rem;
+      margin-bottom: 0.5rem;
     }
 
-    .page-header .header-label { color: var(--bronze); }
-    .page-header h1 { color: var(--indigo); font-size: 2rem; }
+    .page-header .header-label { font-size: 0.6rem; margin-bottom: 0.2rem; }
+    .page-header h1 { font-size: 1.6rem; }
+
+    body { font-size: 10pt; line-height: 1.4; font-family: 'EB Garamond', Georgia, serif; }
 
     main { padding: 0; max-width: 100%; }
 
-    section { page-break-inside: avoid; padding-top: 1.5rem; }
+    section { padding-top: 0.6rem; margin-bottom: 0; page-break-inside: auto; }
 
-    h2 { font-size: 1.4rem; }
-    h2::after { margin-bottom: 0.6rem; }
-    h3 { font-size: 1.1rem; margin-top: 1.2rem; }
+    h2 { font-size: 1.2rem; margin-bottom: 0.1rem; }
+    h2::after { display: none; }
+    h3 { font-size: 1rem; margin-top: 0.6rem; margin-bottom: 0.2rem; }
+    h4 { font-size: 0.9rem; margin-top: 0.4rem; margin-bottom: 0.2rem; }
 
-    table { font-size: 0.8rem; }
-    thead th { font-size: 0.65rem; border-bottom-width: 1px; }
-    tbody td { padding: 0.35rem 0.5rem; }
+    p { margin-bottom: 0.3rem; }
 
-    .table-wrap { margin: 0.5rem 0 1rem; }
+    table { font-size: 9pt; }
+    thead th { font-size: 8pt; border-bottom: 1px solid #000; padding: 0.2rem 0.4rem; }
+    tbody td { padding: 0.2rem 0.4rem; border-bottom-color: #ccc; }
 
-    .warning { border-left-width: 2px; padding: 0.5rem 0.8rem; font-size: 0.8rem; }
-    .open-slot { font-size: 0.8rem; }
+    .table-wrap { margin: 0.3rem 0 0.5rem; }
 
-    a { color: var(--bronze); text-decoration: none; }
+    .required { background: none !important; border: 1px solid #000; padding: 0.05em 0.3em; }
+
+    .warning { border-left: 2px solid #000; padding: 0.3rem 0.6rem; font-size: 9pt; margin: 0.3rem 0; }
+    .open-slot { font-size: 9pt; border-left-color: #999; padding: 0.2rem 0.6rem; margin: 0.3rem 0; }
+
+    a { text-decoration: none !important; }
     a[href]::after { content: none; }
 
+    ol.standards { margin: 0.3rem 0 0.5rem; }
+    ol.standards li { margin-bottom: 0.3rem; }
+    ol.standards li .std-note { font-size: 9pt; }
+    ol.priority-list { margin: 0.3rem 0 0.5rem; }
+    ol.priority-list li { margin-bottom: 0.2rem; }
+    ul.concept-list { margin: 0.3rem 0 0.5rem; }
+    ul.concept-list li { padding: 0.15rem 0 0.15rem 1rem; }
+
     footer {
-      background: none !important;
-      color: var(--muted);
-      border-top: 1px solid var(--rule);
-      padding: 1rem 0;
-      page-break-before: avoid;
+      border-top: 1px solid #000;
+      padding: 0.5rem 0 0;
+      margin-top: 0.5rem;
+      font-size: 9pt;
     }
 
-    footer .attribution { color: var(--muted); }
-    footer a { color: var(--bronze); }
-
-    ol.standards li, ol.priority-list li { margin-bottom: 0.4rem; }
-
-    body { font-size: 11pt; line-height: 1.5; }
+    .sidebar-print { display: none !important; }
   }
 </style>
 </head>
@@ -610,19 +621,20 @@
   <nav class="sidebar-nav" id="sidebar-nav">
     <div class="nav-section">Curriculum</div>
     <a href="#standards">I. Foundational Standards</a>
-    <a href="#logic">II. Languages, Logic &amp; Philosophy</a>
-    <a href="#history">III. Church History</a>
-    <a href="#worship">IV. Worship</a>
-    <a href="#government">V. Church Government</a>
+    <a href="#languages">II. Biblical Languages</a>
+    <a href="#logic">III. Logic &amp; Philosophy</a>
+    <a href="#history">IV. Church History</a>
+    <a href="#worship">V. Worship</a>
+    <a href="#government">VI. Church Government</a>
 
     <div class="nav-section">Confession</div>
-    <a href="#wcf">VI. Westminster Confession</a>
+    <a href="#wcf">VII. Westminster Confession</a>
 
     <div class="nav-section">Further Study</div>
-    <a href="#systematics">VII. Systematic Theology</a>
-    <a href="#preaching">VIII. Preaching</a>
-    <a href="#practical">IX. Practical Eldership</a>
-    <a href="#audio">X. Audio &amp; Lectures</a>
+    <a href="#systematics">VIII. Systematic Theology</a>
+    <a href="#preaching">IX. Preaching</a>
+    <a href="#practical">X. Practical Eldership</a>
+    <a href="#audio">XI. Audio &amp; Lectures</a>
   </nav>
   <div class="sidebar-footer">
     <a href="#" onclick="window.print();return false;" class="sidebar-print">
@@ -694,8 +706,8 @@
   </section>
 
   <!-- BIBLICAL LANGUAGES, LOGIC & PHILOSOPHY -->
-  <section id="logic">
-    <h2>II. Biblical Languages, Logic &amp; Philosophy</h2>
+  <section id="languages">
+    <h2>II. Biblical Languages</h2>
 
     <h3>Biblical Greek</h3>
     <p>A rudimentary knowledge of Greek is desired for all elder candidates.</p>
@@ -757,6 +769,11 @@
         </tbody>
       </table>
     </div>
+  </section>
+
+  <!-- LOGIC & PHILOSOPHY -->
+  <section id="logic">
+    <h2>III. Logic &amp; Philosophy</h2>
 
     <h3>Logic</h3>
     <div class="table-wrap">
@@ -786,7 +803,7 @@
 
   <!-- CHURCH HISTORY -->
   <section id="history">
-    <h2>III. Church History</h2>
+    <h2>IV. Church History</h2>
 
     <h3>Key Short Summaries</h3>
     <div class="table-wrap">
@@ -813,7 +830,7 @@
 
   <!-- WORSHIP -->
   <section id="worship">
-    <h2>IV. Worship</h2>
+    <h2>V. Worship</h2>
     <div class="table-wrap">
       <table>
         <thead><tr><th>#</th><th>Title</th><th>Author</th><th>Notes</th></tr></thead>
@@ -828,7 +845,7 @@
 
   <!-- CHURCH GOVERNMENT -->
   <section id="government">
-    <h2>V. Church Government</h2>
+    <h2>VI. Church Government</h2>
     <div class="table-wrap">
       <table>
         <thead><tr><th>#</th><th>Title</th><th>Author</th><th>Notes</th></tr></thead>
@@ -842,7 +859,7 @@
 
   <!-- WESTMINSTER CONFESSION -->
   <section id="wcf">
-    <h2>VI. Westminster Confession &mdash; Chapter-by-Chapter</h2>
+    <h2>VII. Westminster Confession &mdash; Chapter-by-Chapter</h2>
 
     <h3>Chapter 1: Of the Holy Scripture</h3>
     <div class="table-wrap">
@@ -1093,7 +1110,7 @@
 
   <!-- SYSTEMATIC THEOLOGY -->
   <section id="systematics">
-    <h2>VII. Systematic Theology</h2>
+    <h2>VIII. Systematic Theology</h2>
     <div class="table-wrap">
       <table>
         <thead><tr><th>#</th><th>Title</th><th>Author</th><th>Notes</th></tr></thead>
@@ -1114,7 +1131,7 @@
 
   <!-- PREACHING -->
   <section id="preaching">
-    <h2>VIII. Preaching &amp; Pastoral Skills</h2>
+    <h2>IX. Preaching &amp; Pastoral Skills</h2>
     <p>All free online. Read in this order.</p>
     <div class="table-wrap">
       <table>
@@ -1134,7 +1151,7 @@
 
   <!-- PRACTICAL ELDERSHIP -->
   <section id="practical">
-    <h2>IX. Practical Eldership</h2>
+    <h2>X. Practical Eldership</h2>
 
     <h3>Counseling (Jay Adams &mdash; Nouthetic Counseling)</h3>
     <div class="table-wrap">
@@ -1161,7 +1178,7 @@
 
   <!-- AUDIO / LECTURES -->
   <section id="audio">
-    <h2>X. Audio &amp; Lecture Series</h2>
+    <h2>XI. Audio &amp; Lecture Series</h2>
     <div class="table-wrap">
       <table>
         <thead><tr><th>#</th><th>Title</th><th>Speaker</th><th>Notes</th></tr></thead>
