@@ -162,10 +162,10 @@ A rudimentary knowledge of Greek is desired for all elder candidates.
 |---|-------|--------|------|-------|
 | 1 | *The Scripturalism of Gordon H. Clark* | W. Gary Crampton | [Internet Archive](https://archive.org/details/scripturalismofg0000cram) | Required |
 | 2 | *By Scripture Alone* | W. Gary Crampton | [Amazon](https://www.amazon.com/Scripture-Alone-W-Gary-Crampton/dp/0940931591) | Required |
-| 3 | *The Canon of Scripture* | Walter Kaiser | Purchase only | On the formation of the canon |
+| 3 | *The Canon of Scripture* | Phillip Kayser | [Free Read — Leanpub](https://leanpub.com/read/canon-of-scripture) | On the formation of the canon |
 | 4 | *The Charismatics and the Word of God* | Victor Budgen | [Internet Archive](https://archive.org/details/charismaticsword0000budg_1989) | Excellent on cessationism — walks through key texts. Green/white/purple cover. |
 | 5 | *Before Jerusalem Fell* | Kenneth L. Gentry Jr. | [Free PDF — GaryNorth.com](https://www.garynorth.com/freebooks/docs/pdf/before_jerusalem_fell.pdf) / [Internet Archive](https://archive.org/details/kgbj_20210214) | For understanding the closure-of-canon arguments |
-| 6 | Sermons on the Book of Daniel (esp. Ch. 9) | Phillip Kayser | [SermonAudio — Daniel Series](https://www.sermonaudio.com/solo/dominioncovenant/sermons/series/58331/) | Shows the close of the canon |
+| 6 | Sermons on the Book of Daniel (esp. Ch. 9) | Phillip Kayser | [Biblical Blueprints](https://biblicalblueprints.com/) / [SermonAudio](https://www.sermonaudio.com/solo/dominioncovenant/sermons/series/58331/) | Shows the close of the canon |
 
 ### Chapter 2: Of God, and of the Holy Trinity
 
@@ -303,7 +303,7 @@ Covered well by Schwertley's *National Covenanting*.
 | # | Title | Author | Link | Notes |
 |---|-------|--------|------|-------|
 | 1 | *National Covenanting* | Brian M. Schwertley | [Amazon](https://www.amazon.com/National-Covenanting-Christs-Victory-Nations/dp/0979969239) | Covers well |
-| 2 | *The Divine Right of Resistance* | Phillip Kayser | [Biblical Blueprints](https://biblicalblueprints.com/divine-right) / [Leanpub](https://leanpub.com/divine-right-of-resistance) | Excellent on biblical resistance theory |
+| 2 | *The Divine Right of Resistance* | Phillip Kayser | [Biblical Blueprints](https://biblicalblueprints.com/divine-right) / [Free Read — Leanpub](https://leanpub.com/read/divine-right-of-resistance) | Excellent on biblical resistance theory |
 | 3 | Works on civil government and application of law | Phillip Kayser | [Biblical Blueprints — All Books](https://biblicalblueprints.com/) | Includes material on death penalty and law application |
 
 ### Chapter 24: Of Marriage and Divorce
@@ -311,7 +311,7 @@ Covered well by Schwertley's *National Covenanting*.
 | # | Title | Author | Link | Notes |
 |---|-------|--------|------|-------|
 | 1 | Sermons on WCF Ch. 24 | David Reece | — | Organized all available material on the topic |
-| 2 | Ezra sermon series (on divorce) | Phillip Kayser | [SermonAudio — Kayser Sermons](https://www.sermonaudio.com/speakers/23923/sermons) | Good on organizing principles of abandonment and infidelity |
+| 2 | Ezra sermon series (on divorce) | Phillip Kayser | [Biblical Blueprints](https://biblicalblueprints.com/) / [SermonAudio](https://www.sermonaudio.com/speakers/23923/sermons) | Good on organizing principles of abandonment and infidelity |
 
 ### Chapter 25: Of the Church
 
@@ -354,7 +354,7 @@ No good resource identified yet. Open slot.
 | # | Title | Author | Link | Notes |
 |---|-------|--------|------|-------|
 | 1 | *He Shall Have Dominion* | Kenneth L. Gentry Jr. | [Free PDF — GaryNorth.com](https://www.garynorth.com/freebooks/docs/pdf/he_shall_have_dominion.pdf) / [Internet Archive](https://archive.org/details/he_shall_have_dominion) | — |
-| 2 | Sermon series on Revelation (~118 sermons) | Phillip Kayser | [SermonAudio — Revelation Series](https://www.sermonaudio.com/search.asp?seriesOnly=true&currSection=sermonstopic&sourceid=dominioncovenant&keyword=Revelation&keyworddesc=Revelation) | Comprehensive — highly recommended |
+| 2 | Sermon series on Revelation (~118 sermons) | Phillip Kayser | [Biblical Blueprints](https://biblicalblueprints.com/list/series/Revelation) / [SermonAudio](https://www.sermonaudio.com/search.asp?seriesOnly=true&currSection=sermonstopic&sourceid=dominioncovenant&keyword=Revelation&keyworddesc=Revelation) | Comprehensive — highly recommended |
 | 3 | "Flyover of Revelation" lecture series (~16 hours) | Kenneth L. Gentry Jr. | Purchase only — check [KennethGentry.com](https://www.kennethgentry.com/) | Very good overview |
 
 ---
@@ -418,12 +418,12 @@ For **deacons** specifically:
 | # | Title | Speaker | Link | Notes |
 |---|-------|---------|------|-------|
 | 1 | Trinity Foundation lectures on justification | John Robbins | [SermonAudio](https://www.sermonaudio.com/solo/trinityfoundation/sermons/speakers/John%20W.%20Robbins/) | **Required** — epistemology and justification |
-| 2 | 100-part series on the Life of David | Phillip Kayser | [SermonAudio — Life of David](https://www.sermonaudio.com/series/47907) / [Biblical Blueprints](https://biblicalblueprints.com/list/series/Life%20of%20David) | **Highly desired** — fit in wherever possible |
-| 3 | Sermon series on Revelation (~118 sermons) | Phillip Kayser | [SermonAudio — Revelation](https://www.sermonaudio.com/search.asp?seriesOnly=true&currSection=sermonstopic&sourceid=dominioncovenant&keyword=Revelation&keyworddesc=Revelation) | Eschatology |
-| 4 | Sermon series on Daniel (esp. Ch. 9) | Phillip Kayser | [SermonAudio — Daniel](https://www.sermonaudio.com/solo/dominioncovenant/sermons/series/58331/) | Canon closure arguments |
+| 2 | 100-part series on the Life of David | Phillip Kayser | [Biblical Blueprints](https://biblicalblueprints.com/list/series/Life%20of%20David) / [SermonAudio](https://www.sermonaudio.com/series/47907) | **Highly desired** — fit in wherever possible |
+| 3 | Sermon series on Revelation (~118 sermons) | Phillip Kayser | [Biblical Blueprints](https://biblicalblueprints.com/list/series/Revelation) / [SermonAudio](https://www.sermonaudio.com/search.asp?seriesOnly=true&currSection=sermonstopic&sourceid=dominioncovenant&keyword=Revelation&keyworddesc=Revelation) | Eschatology |
+| 4 | Sermon series on Daniel (esp. Ch. 9) | Phillip Kayser | [Biblical Blueprints](https://biblicalblueprints.com/) / [SermonAudio](https://www.sermonaudio.com/solo/dominioncovenant/sermons/series/58331/) | Canon closure arguments |
 | 5 | RTS Covenant Theology class | Ligon Duncan | [Internet Archive — Full Course](https://archive.org/details/rtscovenanttheologyduncan) / [Monergism — Notes](https://www.monergism.com/thethreshold/sdg/duncan_covenant.html) | Uses Robertson's *Christ of the Covenants* |
 | 6 | "Flyover of Revelation" (~16 hrs) | Kenneth L. Gentry Jr. | Check [KennethGentry.com](https://www.kennethgentry.com/) | Postmillennial eschatology |
-| 7 | Kayser's Survey of the Bible | Phillip Kayser | [SermonAudio — All Sermons](https://www.sermonaudio.com/speakers/23923/sermons) / [Biblical Blueprints](https://biblicalblueprints.com/sermons) | Broad biblical overview |
+| 7 | Kayser's Survey of the Bible | Phillip Kayser | [Biblical Blueprints](https://biblicalblueprints.com/list/series/Bible%20Survey) / [SermonAudio](https://www.sermonaudio.com/speakers/23923/sermons) | Broad biblical overview |
 
 ---
 
