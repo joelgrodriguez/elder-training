@@ -393,6 +393,17 @@
     color: var(--indigo);
   }
 
+  ol.standards li strong a {
+    color: var(--bronze);
+    text-decoration: none;
+    border-bottom: 1px solid transparent;
+    transition: border-color 0.2s;
+  }
+
+  ol.standards li strong a:hover {
+    border-bottom-color: var(--bronze);
+  }
+
   ol.standards li .std-note {
     display: block;
     font-size: 0.85rem;
@@ -624,22 +635,21 @@
     <div class="sidebar-title">Eldership Training</div>
   </div>
   <nav class="sidebar-nav" id="sidebar-nav">
-    <div class="nav-section">Curriculum</div>
-    <a href="#standards">I. Foundational Standards</a>
-    <a href="#languages">II. Biblical Languages</a>
-    <a href="#logic">III. Logic &amp; Philosophy</a>
-    <a href="#history">IV. Church History</a>
-    <a href="#worship">V. Worship</a>
-    <a href="#government">VI. Church Government</a>
+    <div class="nav-section">Standards &amp; Doctrine</div>
+    <a href="#wcf">I. Westminster Standards</a>
+    <a href="#history">II. Church History</a>
+    <a href="#worship">III. Worship</a>
+    <a href="#government">IV. Church Government</a>
 
-    <div class="nav-section">Confession</div>
-    <a href="#wcf">VII. Westminster Confession</a>
+    <div class="nav-section">Foundations</div>
+    <a href="#logic">V. Logic &amp; Philosophy</a>
+    <a href="#languages">VI. Biblical Languages</a>
+    <a href="#systematics">VII. Systematic Theology</a>
 
-    <div class="nav-section">Further Study</div>
-    <a href="#systematics">VIII. Systematic Theology</a>
-    <a href="#preaching">IX. Preaching</a>
-    <a href="#practical">X. Practical Eldership</a>
-    <a href="#audio">XI. Audio &amp; Lectures</a>
+    <div class="nav-section">Ministry</div>
+    <a href="#preaching">VIII. Preaching</a>
+    <a href="#practical">IX. Practical Eldership</a>
+    <a href="#audio">X. Audio &amp; Lectures</a>
   </nav>
   <div class="sidebar-footer">
     <a href="#" onclick="window.print();return false;" class="sidebar-print">
@@ -660,17 +670,19 @@
 
   <main>
 
-  <!-- FOUNDATIONAL STANDARDS -->
-  <section id="standards">
-    <h2>I. Foundational Standards &amp; Documents</h2>
+  <!-- I. WESTMINSTER STANDARDS -->
+  <section id="wcf">
+    <h2>I. Westminster Standards &amp; Confession</h2>
+
+    <h3>Foundational Documents</h3>
     <p>These documents form the constitutional backbone of the curriculum. Every elder candidate must know them thoroughly.</p>
     <ol class="standards">
       <li>
-        <strong>Westminster Confession of Faith</strong>
+        <strong><a href="https://www.westminsterstandards.org/westminster-confession">Westminster Confession of Faith</a></strong>
         <span class="std-note">With the footnote on the Pope and Antichrist retained, and the footnote ensuring the three calls of power can be called (irregular magistrate, officers without a settled court, ordinary delegated settled court).</span>
       </li>
-      <li><strong>Westminster Larger Catechism</strong></li>
-      <li><strong>Westminster Shorter Catechism</strong></li>
+      <li><strong><a href="https://www.westminsterstandards.org/larger-catechism">Westminster Larger Catechism</a></strong></li>
+      <li><strong><a href="https://www.westminsterstandards.org/shorter-catechism">Westminster Shorter Catechism</a></strong></li>
       <li>
         <strong>Form of Government</strong>
         <span class="std-note">Modified version requiring the teaching office (two-office clarification) and specifying the three votes of the congregation.</span>
@@ -685,186 +697,7 @@
       </li>
     </ol>
 
-    <h3>Catechism Commentaries</h3>
-
-    <h4>Westminster Shorter Catechism</h4>
-    <div class="table-wrap">
-      <table>
-        <thead><tr><th>#</th><th>Title</th><th>Author</th><th>Notes</th></tr></thead>
-        <tbody>
-          <tr><td>1</td><td class="book-title"><a href="https://ccel.org/ccel/watson/divinity">A Body of Divinity</a></td><td class="author">Thomas Watson</td><td class="note">The gold standard. Watson&rsquo;s warm, pastoral exposition of each question.</td></tr>
-          <tr><td>2</td><td class="book-title"><a href="https://www.monergism.com/thethreshold/sdg/boston/An%20Exposition%20of%20the%20WSC%20-%20Thomas%20Boston.pdf">An Exposition of the Assembly&rsquo;s Shorter Catechism</a></td><td class="author">Thomas Boston</td><td class="note">Thorough Puritan treatment. Pairs well with Watson.</td></tr>
-        </tbody>
-      </table>
-    </div>
-
-    <h4>Westminster Larger Catechism</h4>
-    <div class="table-wrap">
-      <table>
-        <thead><tr><th>#</th><th>Title</th><th>Author</th><th>Notes</th></tr></thead>
-        <tbody>
-          <tr><td>1</td><td class="book-title"><a href="https://archive.org/details/bodyofdivinity01ridg">A Body of Divinity</a> (2 vols.)</td><td class="author">Thomas Ridgeley</td><td class="note">The classic full-length commentary on the Larger Catechism. Public domain.</td></tr>
-          <tr><td>2</td><td class="book-title"><a href="https://archive.org/details/westminsterlarge0000vosj">The Westminster Larger Catechism: A Commentary</a></td><td class="author">J.G. Vos</td><td class="note">20th-century Reformed commentary. Clear, accessible, and question-by-question.</td></tr>
-        </tbody>
-      </table>
-    </div>
-  </section>
-
-  <!-- BIBLICAL LANGUAGES, LOGIC & PHILOSOPHY -->
-  <section id="languages">
-    <h2>II. Biblical Languages</h2>
-
-    <h3>Biblical Greek</h3>
-    <p>A rudimentary knowledge of Greek is desired for all elder candidates.</p>
-
-    <h4>Textbooks (Free)</h4>
-    <div class="table-wrap">
-      <table>
-        <thead><tr><th>#</th><th>Title</th><th>Author</th><th>Notes</th></tr></thead>
-        <tbody>
-          <tr><td>1</td><td class="book-title"><a href="https://icotb.org/resources/GreekGrammar-Machen.pdf">New Testament Greek for Beginners</a></td><td class="author">J. Gresham Machen</td><td class="note">The classic Reformed grammar. Public domain.</td></tr>
-          <tr><td>2</td><td class="book-title"><a href="https://open.umn.edu/opentextbooks/textbooks/1275">Elementary New Testament Greek</a></td><td class="author">Owen Ewald</td><td class="note">Open-access, Creative Commons. No prior language study assumed.</td></tr>
-          <tr><td>3</td><td class="book-title"><a href="https://fbcclassroom.com/wp-content/uploads/2021/05/Wenham._Elements_of_New_Testament_GreekBookFi.org_compressed.pdf">The Elements of New Testament Greek</a></td><td class="author">J.W. Wenham</td><td class="note">Another solid beginner grammar</td></tr>
-          <tr><td>4</td><td class="book-title"><a href="https://archive.org/details/basicsofbiblical0000moun_h2k8">Basics of Biblical Greek Grammar</a></td><td class="author">William Mounce</td><td class="note">The modern standard &mdash; borrow digitally</td></tr>
-        </tbody>
-      </table>
-    </div>
-
-    <h4>Free Video Courses &amp; Tools</h4>
-    <div class="table-wrap">
-      <table>
-        <thead><tr><th>#</th><th>Resource</th><th>Notes</th></tr></thead>
-        <tbody>
-          <tr><td>1</td><td><a href="https://www.billmounce.com/greek">Bill Mounce&rsquo;s Greek Lectures</a></td><td class="note">Free video lectures keyed to his textbook</td></tr>
-          <tr><td>2</td><td><a href="https://greekforall.com/free-biblical-greek-video-lessons/">Greek For All &mdash; Video Lessons</a></td><td class="note">Comprehensive beginner grammar videos</td></tr>
-          <tr><td>3</td><td><a href="https://dailydoseofgreek.com/learn-biblical-greek/">Daily Dose of Greek</a></td><td class="note">Free 2-minute daily verse videos + 26 instructional videos</td></tr>
-          <tr><td>4</td><td><a href="https://koinefoundations.com/">Koine Foundations</a></td><td class="note">Free audio/video supplements for alphabet and vocab</td></tr>
-          <tr><td>5</td><td><a href="https://www.christianleadersinstitute.org/gre-201-free-biblical-greek-course/">Christian Leaders Institute &mdash; Free Greek Course</a></td><td class="note">Structured free online course</td></tr>
-          <tr><td>6</td><td><a href="https://byzantinetext.com/wp-content/uploads/2017/08/RP2016-Readers-Edition.pdf">Greek NT Readers Edition (Byzantine)</a></td><td class="note">Greek NT with parsing aids &mdash; great for reading practice</td></tr>
-        </tbody>
-      </table>
-    </div>
-
-    <h3>Biblical Hebrew</h3>
-
-    <h4>Textbooks (Free)</h4>
-    <div class="table-wrap">
-      <table>
-        <thead><tr><th>#</th><th>Title</th><th>Author</th><th>Notes</th></tr></thead>
-        <tbody>
-          <tr><td>1</td><td class="book-title"><a href="https://tmcdaniel.palmerseminary.edu/GeseniusGrammar.pdf">Gesenius&rsquo; Hebrew Grammar</a> (1910)</td><td class="author">Wilhelm Gesenius (ed. Kautzsch/Cowley)</td><td class="note">The standard reference grammar. Public domain.</td></tr>
-          <tr><td>2</td><td class="book-title"><a href="https://fbcclassroom.com/wp-content/uploads/2021/08/A-Handbook-to-Biblical-Hebrew_-An-Introduc-Timothy-G.-Crawford_compressed.pdf">A Handbook to Biblical Hebrew</a></td><td class="author">Timothy G. Crawford</td><td class="note">Introductory grammar</td></tr>
-          <tr><td>3</td><td class="book-title"><a href="https://archive.org/details/basicsofbiblical0000prat">Basics of Biblical Hebrew Grammar</a></td><td class="author">Pratico &amp; Van Pelt</td><td class="note">The modern standard &mdash; borrow or download</td></tr>
-          <tr><td>4</td><td class="book-title"><a href="https://archive.org/details/grammarforbiblic0000seow">A Grammar for Biblical Hebrew</a></td><td class="author">C.L. Seow</td><td class="note">Another solid option</td></tr>
-        </tbody>
-      </table>
-    </div>
-
-    <h4>Free Video Courses &amp; Tools</h4>
-    <div class="table-wrap">
-      <table>
-        <thead><tr><th>#</th><th>Resource</th><th>Notes</th></tr></thead>
-        <tbody>
-          <tr><td>1</td><td><a href="https://freehebrew.online/">Aleph with Beth (Free Hebrew Online)</a></td><td class="note">Immersive video course &mdash; learn to read biblical Hebrew naturally. Highly recommended.</td></tr>
-          <tr><td>2</td><td><a href="https://biblicalhebrew.com/">BiblicalHebrew.com</a></td><td class="note">Free immersive video lessons + online activities</td></tr>
-          <tr><td>3</td><td><a href="https://www.hebrew4christians.com/">Hebrew for Christians</a></td><td class="note">Alphabet, vowels, grammar with audio. Free downloads.</td></tr>
-          <tr><td>4</td><td><a href="https://dailydoseofhebrew.com/">Daily Dose of Hebrew</a></td><td class="note">2-minute daily Hebrew verse videos</td></tr>
-          <tr><td>5</td><td><a href="https://www.animatedhebrew.com/">Animated Hebrew</a></td><td class="note">35 hours of video lectures, alphabet song, vocab apps</td></tr>
-          <tr><td>6</td><td><a href="https://bibleproject.com/classroom/introduction-to-the-hebrew-bible">BibleProject &mdash; Intro to the Hebrew Bible</a></td><td class="note">Free structured course</td></tr>
-        </tbody>
-      </table>
-    </div>
-  </section>
-
-  <!-- LOGIC & PHILOSOPHY -->
-  <section id="logic">
-    <h2>III. Logic &amp; Philosophy</h2>
-
-    <h3>Logic</h3>
-    <div class="table-wrap">
-      <table>
-        <thead><tr><th>#</th><th>Title</th><th>Author</th><th>Notes</th></tr></thead>
-        <tbody>
-          <tr><td>1</td><td class="book-title"><a href="https://apologetics315.com/2013/01/free-logic-primer-ebook-download/">Logic Primer</a></td><td class="author">Elihu Carranza</td><td class="note">Short, clear, no appeals to men for logic. Based on Gordon Clark&rsquo;s work.</td></tr>
-          <tr><td>2</td><td class="book-title"><a href="https://www.amazon.com/Logic-Primer-Exercises-Answers-Carranza/dp/B0989VKSKG">Logic Primer Exercises &amp; Answers</a></td><td class="author">Elihu Carranza</td><td class="note">Companion workbook</td></tr>
-        </tbody>
-      </table>
-    </div>
-
-    <h3>Philosophy</h3>
-    <div class="table-wrap">
-      <table>
-        <thead><tr><th>#</th><th>Title</th><th>Author</th><th>Notes</th></tr></thead>
-        <tbody>
-          <tr><td>1</td><td class="book-title"><a href="https://archive.org/details/thalestodeweyhis0000clar">Thales to Dewey</a></td><td class="author">Gordon H. Clark</td><td class="note">Short, useful overview of the history of philosophy</td></tr>
-          <tr><td>2</td><td class="book-title"><a href="https://archive.org/details/christianviewofm0000gord">The Christian View of Men and Things</a></td><td class="author">Gordon H. Clark</td><td class="note">Christian philosophy applied to major areas of thought</td></tr>
-          <tr><td>3</td><td class="book-title"><a href="https://www.trinitylectures.org/">A Christian Philosophy of Education</a></td><td class="author">Gordon H. Clark</td><td class="note"></td></tr>
-          <tr><td>4</td><td class="book-title"><a href="https://archive.org/details/concerningteache0000unse">Of the Teacher (De Magistro)</a></td><td class="author">Aurelius Augustine</td><td class="note">Foundational Christian epistemology</td></tr>
-          <tr><td>5</td><td class="book-title"><a href="https://archive.org/details/russell-bertrand-a-history-of-western-philosophy">A History of Western Philosophy</a></td><td class="author">Bertrand Russell</td><td class="note">Secular one-volume summary &mdash; read for perspective, not agreement</td></tr>
-        </tbody>
-      </table>
-    </div>
-  </section>
-
-  <!-- CHURCH HISTORY -->
-  <section id="history">
-    <h2>IV. Church History</h2>
-
-    <h3>Key Short Summaries</h3>
-    <div class="table-wrap">
-      <table>
-        <thead><tr><th>#</th><th>Title</th><th>Author</th><th>Notes</th></tr></thead>
-        <tbody>
-          <tr><td>1</td><td class="book-title"><a href="https://archive.org/details/reformationprinc00refo">Reformation Principles Exhibited</a></td><td class="author">Reformed Presbyterian Church in America</td><td class="note">c.&nbsp;1806. Good short summary from the Covenanter perspective. Has a historicist view of Revelation.</td></tr>
-        </tbody>
-      </table>
-    </div>
-
-    <h3>Historical Focus Areas</h3>
-    <ol class="priority-list">
-      <li><strong>Bible History</strong> &mdash; Genesis through 70&nbsp;AD (the most important)</li>
-      <li><strong>Major Councils</strong> &mdash; Nicaea, Chalcedon, Orange</li>
-      <li><strong>The Persecuted Church</strong> &mdash; pre-Constantinian era</li>
-      <li><strong>Papal Dominion</strong> &mdash; c.&nbsp;600&nbsp;AD to the Reformation</li>
-      <li><strong>Reformation History</strong> &mdash; through the &ldquo;Killing Times&rdquo;</li>
-      <li><strong>Second Reformation</strong> &mdash; John Knox and the Covenanter testimonies</li>
-      <li><strong>Decline of American Presbyterianism</strong> &mdash; the drift into non-establishmentarianism and the unscriptural 1789 alterations</li>
-      <li><strong>Preterist &amp; Postmillennial documents</strong> &mdash; for thinking about the current church era</li>
-    </ol>
-  </section>
-
-  <!-- WORSHIP -->
-  <section id="worship">
-    <h2>V. Worship</h2>
-    <div class="table-wrap">
-      <table>
-        <thead><tr><th>#</th><th>Title</th><th>Author</th><th>Notes</th></tr></thead>
-        <tbody>
-          <tr><td>1</td><td class="book-title"><a href="https://www.amazon.com/Songs-Zion-Michael-Bushell/dp/0983015414">Songs of Zion</a></td><td class="author">Michael Bushell</td><td class="note"><span class="required">Required</span> The most comprehensive contemporary work on exclusive psalmody. Note: Bushell wrongly claims the synagogue system is not biblical.</td></tr>
-          <tr><td>2</td><td class="book-title"><a href="https://archive.org/details/instrumentalmus00giragoog">Instrumental Music in the Public Worship of the Church</a></td><td class="author">John L. Girardeau</td><td class="note">1888. Excellent defense of the a cappella position.</td></tr>
-          <tr><td>3</td><td><a href="https://www.reformedonline.com/books/">Works on instruments, holy days, and psalmody</a></td><td class="author">Brian M. Schwertley</td><td class="note">Shorter treatments &mdash; the psalmody book is recommended for deacons.</td></tr>
-        </tbody>
-      </table>
-    </div>
-  </section>
-
-  <!-- CHURCH GOVERNMENT -->
-  <section id="government">
-    <h2>VI. Church Government</h2>
-    <div class="table-wrap">
-      <table>
-        <thead><tr><th>#</th><th>Title</th><th>Author</th><th>Notes</th></tr></thead>
-        <tbody>
-          <tr><td>1</td><td class="book-title"><a href="https://archive.org/details/churchofchrist0001jame">The Church of Christ</a></td><td class="author">James Bannerman</td><td class="note">2 vols. Extremely good. Covers nature, powers, ordinances, discipline, and government. Also excellent on church censures (Ch.&nbsp;30) and synods/councils (Ch.&nbsp;31).</td></tr>
-          <tr><td>2</td><td><a href="https://archive.org/details/essayonwarrantna184200mill">An Essay on the Ruling Elder</a></td><td class="author">Samuel Miller</td><td class="note">Clear explanation of how higher offices contain lower offices; principles of graded courts.</td></tr>
-        </tbody>
-      </table>
-    </div>
-  </section>
-
-  <!-- WESTMINSTER CONFESSION -->
-  <section id="wcf">
-    <h2>VII. Westminster Confession &mdash; Chapter-by-Chapter</h2>
+    <h3>Confession &mdash; Chapter-by-Chapter Study</h3>
 
     <h3>Chapter 1: Of the Holy Scripture</h3>
     <div class="table-wrap">
@@ -1046,7 +879,7 @@
     <p class="open-slot">Covered by various Puritan resources on the regulative principle of worship.</p>
 
     <h3>Chapter 21: Of Religious Worship and the Sabbath Day</h3>
-    <p class="open-slot">Covered by the worship resources listed in Section&nbsp;IV above.</p>
+    <p class="open-slot">Covered by the worship resources listed in Section&nbsp;III above.</p>
 
     <h3>Chapters 22&ndash;23: Of Oaths, Vows &amp; the Civil Magistrate</h3>
     <div class="table-wrap">
@@ -1111,11 +944,187 @@
         </tbody>
       </table>
     </div>
+
+    <h3>Catechism Commentaries</h3>
+
+    <h4>Westminster Shorter Catechism</h4>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>#</th><th>Title</th><th>Author</th><th>Notes</th></tr></thead>
+        <tbody>
+          <tr><td>1</td><td class="book-title"><a href="https://ccel.org/ccel/watson/divinity">A Body of Divinity</a></td><td class="author">Thomas Watson</td><td class="note">The gold standard. Watson&rsquo;s warm, pastoral exposition of each question.</td></tr>
+          <tr><td>2</td><td class="book-title"><a href="https://www.monergism.com/thethreshold/sdg/boston/An%20Exposition%20of%20the%20WSC%20-%20Thomas%20Boston.pdf">An Exposition of the Assembly&rsquo;s Shorter Catechism</a></td><td class="author">Thomas Boston</td><td class="note">Thorough Puritan treatment. Pairs well with Watson.</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h4>Westminster Larger Catechism</h4>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>#</th><th>Title</th><th>Author</th><th>Notes</th></tr></thead>
+        <tbody>
+          <tr><td>1</td><td class="book-title"><a href="https://archive.org/details/bodyofdivinity01ridg">A Body of Divinity</a> (2 vols.)</td><td class="author">Thomas Ridgeley</td><td class="note">The classic full-length commentary on the Larger Catechism. Public domain.</td></tr>
+          <tr><td>2</td><td class="book-title"><a href="https://archive.org/details/westminsterlarge0000vosj">The Westminster Larger Catechism: A Commentary</a></td><td class="author">J.G. Vos</td><td class="note">20th-century Reformed commentary. Clear, accessible, and question-by-question.</td></tr>
+        </tbody>
+      </table>
+    </div>
   </section>
 
-  <!-- SYSTEMATIC THEOLOGY -->
+  <!-- II. CHURCH HISTORY -->
+  <section id="history">
+    <h2>II. Church History</h2>
+
+    <h3>Key Short Summaries</h3>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>#</th><th>Title</th><th>Author</th><th>Notes</th></tr></thead>
+        <tbody>
+          <tr><td>1</td><td class="book-title"><a href="https://archive.org/details/reformationprinc00refo">Reformation Principles Exhibited</a></td><td class="author">Reformed Presbyterian Church in America</td><td class="note">c.&nbsp;1806. Good short summary from the Covenanter perspective. Has a historicist view of Revelation.</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h3>Historical Focus Areas</h3>
+    <ol class="priority-list">
+      <li><strong>Bible History</strong> &mdash; Genesis through 70&nbsp;AD (the most important)</li>
+      <li><strong>Major Councils</strong> &mdash; Nicaea, Chalcedon, Orange</li>
+      <li><strong>The Persecuted Church</strong> &mdash; pre-Constantinian era</li>
+      <li><strong>Papal Dominion</strong> &mdash; c.&nbsp;600&nbsp;AD to the Reformation</li>
+      <li><strong>Reformation History</strong> &mdash; through the &ldquo;Killing Times&rdquo;</li>
+      <li><strong>Second Reformation</strong> &mdash; John Knox and the Covenanter testimonies</li>
+      <li><strong>Decline of American Presbyterianism</strong> &mdash; the drift into non-establishmentarianism and the unscriptural 1789 alterations</li>
+      <li><strong>Preterist &amp; Postmillennial documents</strong> &mdash; for thinking about the current church era</li>
+    </ol>
+  </section>
+
+  <!-- III. WORSHIP -->
+  <section id="worship">
+    <h2>III. Worship</h2>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>#</th><th>Title</th><th>Author</th><th>Notes</th></tr></thead>
+        <tbody>
+          <tr><td>1</td><td class="book-title"><a href="https://www.amazon.com/Songs-Zion-Michael-Bushell/dp/0983015414">Songs of Zion</a></td><td class="author">Michael Bushell</td><td class="note"><span class="required">Required</span> The most comprehensive contemporary work on exclusive psalmody. Note: Bushell wrongly claims the synagogue system is not biblical.</td></tr>
+          <tr><td>2</td><td class="book-title"><a href="https://archive.org/details/instrumentalmus00giragoog">Instrumental Music in the Public Worship of the Church</a></td><td class="author">John L. Girardeau</td><td class="note">1888. Excellent defense of the a cappella position.</td></tr>
+          <tr><td>3</td><td><a href="https://www.reformedonline.com/books/">Works on instruments, holy days, and psalmody</a></td><td class="author">Brian M. Schwertley</td><td class="note">Shorter treatments &mdash; the psalmody book is recommended for deacons.</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- IV. CHURCH GOVERNMENT -->
+  <section id="government">
+    <h2>IV. Church Government</h2>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>#</th><th>Title</th><th>Author</th><th>Notes</th></tr></thead>
+        <tbody>
+          <tr><td>1</td><td class="book-title"><a href="https://archive.org/details/churchofchrist0001jame">The Church of Christ</a></td><td class="author">James Bannerman</td><td class="note">2 vols. Extremely good. Covers nature, powers, ordinances, discipline, and government. Also excellent on church censures (Ch.&nbsp;30) and synods/councils (Ch.&nbsp;31).</td></tr>
+          <tr><td>2</td><td><a href="https://archive.org/details/essayonwarrantna184200mill">An Essay on the Ruling Elder</a></td><td class="author">Samuel Miller</td><td class="note">Clear explanation of how higher offices contain lower offices; principles of graded courts.</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- V. LOGIC & PHILOSOPHY -->
+  <section id="logic">
+    <h2>V. Logic &amp; Philosophy</h2>
+
+    <h3>Logic</h3>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>#</th><th>Title</th><th>Author</th><th>Notes</th></tr></thead>
+        <tbody>
+          <tr><td>1</td><td class="book-title"><a href="https://apologetics315.com/2013/01/free-logic-primer-ebook-download/">Logic Primer</a></td><td class="author">Elihu Carranza</td><td class="note">Short, clear, no appeals to men for logic. Based on Gordon Clark&rsquo;s work.</td></tr>
+          <tr><td>2</td><td class="book-title"><a href="https://www.amazon.com/Logic-Primer-Exercises-Answers-Carranza/dp/B0989VKSKG">Logic Primer Exercises &amp; Answers</a></td><td class="author">Elihu Carranza</td><td class="note">Companion workbook</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h3>Philosophy</h3>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>#</th><th>Title</th><th>Author</th><th>Notes</th></tr></thead>
+        <tbody>
+          <tr><td>1</td><td class="book-title"><a href="https://archive.org/details/thalestodeweyhis0000clar">Thales to Dewey</a></td><td class="author">Gordon H. Clark</td><td class="note">Short, useful overview of the history of philosophy</td></tr>
+          <tr><td>2</td><td class="book-title"><a href="https://archive.org/details/christianviewofm0000gord">The Christian View of Men and Things</a></td><td class="author">Gordon H. Clark</td><td class="note">Christian philosophy applied to major areas of thought</td></tr>
+          <tr><td>3</td><td class="book-title"><a href="https://www.trinitylectures.org/">A Christian Philosophy of Education</a></td><td class="author">Gordon H. Clark</td><td class="note"></td></tr>
+          <tr><td>4</td><td class="book-title"><a href="https://archive.org/details/concerningteache0000unse">Of the Teacher (De Magistro)</a></td><td class="author">Aurelius Augustine</td><td class="note">Foundational Christian epistemology</td></tr>
+          <tr><td>5</td><td class="book-title"><a href="https://archive.org/details/russell-bertrand-a-history-of-western-philosophy">A History of Western Philosophy</a></td><td class="author">Bertrand Russell</td><td class="note">Secular one-volume summary &mdash; read for perspective, not agreement</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- VI. BIBLICAL LANGUAGES -->
+  <section id="languages">
+    <h2>VI. Biblical Languages</h2>
+
+    <h3>Biblical Greek</h3>
+    <p>A rudimentary knowledge of Greek is desired for all elder candidates.</p>
+
+    <h4>Textbooks (Free)</h4>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>#</th><th>Title</th><th>Author</th><th>Notes</th></tr></thead>
+        <tbody>
+          <tr><td>1</td><td class="book-title"><a href="https://icotb.org/resources/GreekGrammar-Machen.pdf">New Testament Greek for Beginners</a></td><td class="author">J. Gresham Machen</td><td class="note">The classic Reformed grammar. Public domain.</td></tr>
+          <tr><td>2</td><td class="book-title"><a href="https://open.umn.edu/opentextbooks/textbooks/1275">Elementary New Testament Greek</a></td><td class="author">Owen Ewald</td><td class="note">Open-access, Creative Commons. No prior language study assumed.</td></tr>
+          <tr><td>3</td><td class="book-title"><a href="https://fbcclassroom.com/wp-content/uploads/2021/05/Wenham._Elements_of_New_Testament_GreekBookFi.org_compressed.pdf">The Elements of New Testament Greek</a></td><td class="author">J.W. Wenham</td><td class="note">Another solid beginner grammar</td></tr>
+          <tr><td>4</td><td class="book-title"><a href="https://archive.org/details/basicsofbiblical0000moun_h2k8">Basics of Biblical Greek Grammar</a></td><td class="author">William Mounce</td><td class="note">The modern standard &mdash; borrow digitally</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h4>Free Video Courses &amp; Tools</h4>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>#</th><th>Resource</th><th>Notes</th></tr></thead>
+        <tbody>
+          <tr><td>1</td><td><a href="https://www.billmounce.com/greek">Bill Mounce&rsquo;s Greek Lectures</a></td><td class="note">Free video lectures keyed to his textbook</td></tr>
+          <tr><td>2</td><td><a href="https://greekforall.com/free-biblical-greek-video-lessons/">Greek For All &mdash; Video Lessons</a></td><td class="note">Comprehensive beginner grammar videos</td></tr>
+          <tr><td>3</td><td><a href="https://dailydoseofgreek.com/learn-biblical-greek/">Daily Dose of Greek</a></td><td class="note">Free 2-minute daily verse videos + 26 instructional videos</td></tr>
+          <tr><td>4</td><td><a href="https://koinefoundations.com/">Koine Foundations</a></td><td class="note">Free audio/video supplements for alphabet and vocab</td></tr>
+          <tr><td>5</td><td><a href="https://www.christianleadersinstitute.org/gre-201-free-biblical-greek-course/">Christian Leaders Institute &mdash; Free Greek Course</a></td><td class="note">Structured free online course</td></tr>
+          <tr><td>6</td><td><a href="https://byzantinetext.com/wp-content/uploads/2017/08/RP2016-Readers-Edition.pdf">Greek NT Readers Edition (Byzantine)</a></td><td class="note">Greek NT with parsing aids &mdash; great for reading practice</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h3>Biblical Hebrew</h3>
+
+    <h4>Textbooks (Free)</h4>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>#</th><th>Title</th><th>Author</th><th>Notes</th></tr></thead>
+        <tbody>
+          <tr><td>1</td><td class="book-title"><a href="https://tmcdaniel.palmerseminary.edu/GeseniusGrammar.pdf">Gesenius&rsquo; Hebrew Grammar</a> (1910)</td><td class="author">Wilhelm Gesenius (ed. Kautzsch/Cowley)</td><td class="note">The standard reference grammar. Public domain.</td></tr>
+          <tr><td>2</td><td class="book-title"><a href="https://fbcclassroom.com/wp-content/uploads/2021/08/A-Handbook-to-Biblical-Hebrew_-An-Introduc-Timothy-G.-Crawford_compressed.pdf">A Handbook to Biblical Hebrew</a></td><td class="author">Timothy G. Crawford</td><td class="note">Introductory grammar</td></tr>
+          <tr><td>3</td><td class="book-title"><a href="https://archive.org/details/basicsofbiblical0000prat">Basics of Biblical Hebrew Grammar</a></td><td class="author">Pratico &amp; Van Pelt</td><td class="note">The modern standard &mdash; borrow or download</td></tr>
+          <tr><td>4</td><td class="book-title"><a href="https://archive.org/details/grammarforbiblic0000seow">A Grammar for Biblical Hebrew</a></td><td class="author">C.L. Seow</td><td class="note">Another solid option</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h4>Free Video Courses &amp; Tools</h4>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>#</th><th>Resource</th><th>Notes</th></tr></thead>
+        <tbody>
+          <tr><td>1</td><td><a href="https://freehebrew.online/">Aleph with Beth (Free Hebrew Online)</a></td><td class="note">Immersive video course &mdash; learn to read biblical Hebrew naturally. Highly recommended.</td></tr>
+          <tr><td>2</td><td><a href="https://biblicalhebrew.com/">BiblicalHebrew.com</a></td><td class="note">Free immersive video lessons + online activities</td></tr>
+          <tr><td>3</td><td><a href="https://www.hebrew4christians.com/">Hebrew for Christians</a></td><td class="note">Alphabet, vowels, grammar with audio. Free downloads.</td></tr>
+          <tr><td>4</td><td><a href="https://dailydoseofhebrew.com/">Daily Dose of Hebrew</a></td><td class="note">2-minute daily Hebrew verse videos</td></tr>
+          <tr><td>5</td><td><a href="https://www.animatedhebrew.com/">Animated Hebrew</a></td><td class="note">35 hours of video lectures, alphabet song, vocab apps</td></tr>
+          <tr><td>6</td><td><a href="https://bibleproject.com/classroom/introduction-to-the-hebrew-bible">BibleProject &mdash; Intro to the Hebrew Bible</a></td><td class="note">Free structured course</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- VII. SYSTEMATIC THEOLOGY -->
   <section id="systematics">
-    <h2>VIII. Systematic Theology</h2>
+    <h2>VII. Systematic Theology</h2>
     <div class="table-wrap">
       <table>
         <thead><tr><th>#</th><th>Title</th><th>Author</th><th>Notes</th></tr></thead>
@@ -1136,7 +1145,7 @@
 
   <!-- PREACHING -->
   <section id="preaching">
-    <h2>IX. Preaching &amp; Pastoral Skills</h2>
+    <h2>VIII. Preaching &amp; Pastoral Skills</h2>
     <p>All free online. Read in this order.</p>
     <div class="table-wrap">
       <table>
@@ -1156,7 +1165,7 @@
 
   <!-- PRACTICAL ELDERSHIP -->
   <section id="practical">
-    <h2>X. Practical Eldership</h2>
+    <h2>IX. Practical Eldership</h2>
 
     <h3>Counseling (Jay Adams &mdash; Nouthetic Counseling)</h3>
     <div class="table-wrap">
@@ -1183,7 +1192,7 @@
 
   <!-- AUDIO / LECTURES -->
   <section id="audio">
-    <h2>XI. Audio &amp; Lecture Series</h2>
+    <h2>X. Audio &amp; Lecture Series</h2>
     <div class="table-wrap">
       <table>
         <thead><tr><th>#</th><th>Title</th><th>Speaker</th><th>Notes</th></tr></thead>
